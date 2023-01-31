@@ -1,16 +1,18 @@
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from './page.module.css'
+import MenuBar from '@/components/MenuBar/MenuBar'
 const inter = Inter({ subsets: ['latin'] })
 
 
 export default function Home() {
   return (
-    <main className='grid grid-cols-12 grid-rows-6 border-2 border-black'>
-      
+    <main className='w-full h-[100vh] flex justify-center items-center sm:border-2 sm:border-black bg-black'>
+      <div className='w-full h-full grid grid-cols-12 grid-rows-6 sm:border-2 sm:border-black bg-white sm:-mt-3 sm:-ml-3'>
 
-      <div className='h-[40vh] w-full'> asasdasd asdasd</div>
-     
+        <MenuBar />
+
+      </div>
     </main>
   )
 }
