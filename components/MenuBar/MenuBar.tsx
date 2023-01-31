@@ -10,7 +10,7 @@ const MenuBar = () => {
 
 
     return (
-        <nav className='hidden sm:inline-flex col-span-full h-10 bg-black justify-between items-center px-5'>
+        <nav className='hidden md:inline-flex w-full col-span-full h-10 bg-black justify-between items-center px-5'>
             <ul className='flex flex-start items-center text-white space-x-3 text-base font-medium hover:cursor-pointer'>
                 <li> Finder </li>
                 <li> File </li>
