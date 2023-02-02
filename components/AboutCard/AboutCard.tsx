@@ -39,7 +39,7 @@ const AboutCard = () => {
         {/* ----------- Name, description,and read more button -----------*/}
         <div className='w-full flex flex-col items-center justify-start text-center space-y-2 px-1 sm:px-3'>
           <h3 className='text-2xl font-bold'> Anurag Kochar </h3>
-          <p className='text-base font-medium'> Hey folks, Im a frontend dev,
+          <p className='text-base font-medium  '> Hey folks, Im a frontend dev,
             who loves to build products which solves real-world problems, and yeah I create content too. :D
           </p>
 
