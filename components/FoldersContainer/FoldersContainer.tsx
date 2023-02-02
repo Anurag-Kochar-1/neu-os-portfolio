@@ -6,7 +6,7 @@ const FoldersContainer = () => {
   return (
     <div className='w-full col-span-full flex flex-wrap justify-between items-center '>
       {FoldersDataArray && FoldersDataArray?.map((folder) => {
-        return <FolderCard folder={folder} />
+        return <FolderCard key={folder.id} folder={folder} />
       })}
     </div>
   )
