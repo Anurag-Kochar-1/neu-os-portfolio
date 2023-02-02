@@ -7,7 +7,7 @@ import anuragPNG from "../../public/images/creator/anuragPNG.png"
 
 const AboutCard = () => {
   return (
-    <div className='z-20 col-span-11 sm:col-span-9 md:col-span-7 lg:col-span-5 xl:col-span-4 2xl:col-span-3  flex flex-col items-center justify-center border-2 border-black bg-black'>
+    <div className='z-20 col-start-2 col-end-12 sm:col-start-3 sm:col-end-11 md:col-start-2 md:col-end-12 lg:col-span-5 xl:col-span-4 2xl:col-span-3  flex flex-col items-center justify-center border-2 border-black bg-black'>
       <div className='w-full h-full -mt-2 -ml-2 flex flex-col justify-start items-center bg-white border-2 border-black'>
 
         {/* ----------- Header ----------- */}
