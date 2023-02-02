@@ -4,7 +4,6 @@ import styles from './page.module.css'
 import MenuBar from '@/components/MenuBar/MenuBar'
 import AboutCard from '@/components/AboutCard/AboutCard'
 import FoldersContainer from '@/components/FoldersContainer/FoldersContainer'
-import TaskBar from '@/components/TaskBar/TaskBar'
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -22,7 +21,7 @@ export default function Home() {
 
           <AboutCard />
 
-          <TaskBar />
+          
 
 
         </div>
