@@ -10,7 +10,7 @@ const MenuBar = () => {
 
 
     return (
-        <nav className='hidden md:inline-flex w-full col-span-full h-10 bg-black justify-between items-center px-5'>
+        <nav className='w-full col-span-full h-10 bg-black flex justify-between items-center px-5'>
             <ul className='flex flex-start items-center text-white space-x-3 text-base font-medium hover:cursor-pointer'>
                 <li> Finder </li>
                 <li> File </li>
@@ -21,7 +21,7 @@ const MenuBar = () => {
                 <li> Help </li>
             </ul>
 
-            <p className='text-white font-medium text-base space-x-3 hover:cursor-pointer'> {date} {time} </p>
+            <p className='hidden md:inline-block text-white font-medium text-base space-x-3 hover:cursor-pointer'> {date} {time} </p>
 
 
 
