@@ -1,5 +1,5 @@
-import React from 'react'
 import { TaskBarIconsDataArray } from '@/constants/TaskBarIconsData/TaskBarIconsData'
+import React from 'react'
 import { FaSearch } from "react-icons/fa"
 import TaskBarIcon from '../TaskBarIcon/TaskBarIcon'
 
@@ -10,7 +10,7 @@ const TaskBar = () => {
 
         {/* Search Icon */}
 
-        {/* <div className={`w-14 h-14 flex justify-center items-center bg-black border border-black rounded-md`}>
+        <div className={`w-14 h-14 flex justify-center items-center bg-black border border-black rounded-md`}>
           <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center bg-[#39DBFF] text-white rounded-md`}>
             <FaSearch />
           </div>
@@ -20,7 +20,7 @@ const TaskBar = () => {
 
         {TaskBarIconsDataArray && TaskBarIconsDataArray?.map((icon) => {
           return <TaskBarIcon key={icon.id} icon={icon} />
-        })} */}
+        })}
         
       </div>
     </div>
