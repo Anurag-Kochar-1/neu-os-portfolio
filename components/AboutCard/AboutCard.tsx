@@ -41,11 +41,11 @@ const AboutCard = () => {
           {/* ----------- Name, description,and read more button -----------*/}
           <div className='w-full h-[90%] flex flex-col items-center justify-start text-center space-y-2 px-1 sm:px-3 py-5'>
             <h3 className='text-2xl font-bold'> Anurag Kochar </h3>
-            <p className='text-base font-medium  '> Hey folks, Im a frontend dev,
+            <p className='text-base font-medium'> Hey folks, Im a frontend dev,
               who loves to build products which solves real-world problems, and yeah I create content too. :D
             </p>
 
-            <button type='button' title='read-more' className='my-10 px-7 py-1 rounded-none border-2 border-black'> read more </button>
+            <button type='button' title='read-more' className='my-10 px-7 py-1 rounded-none border-2 border-black '> read more </button>
           </div>
         </div>
 
@@ -53,7 +53,7 @@ const AboutCard = () => {
 
         {/* ----------- Bottom bar -----------*/}
         <div className='flex w-full h-20 relative justify-between items-center border-t-2 border-t-black px-5' >
-          <Image src={lightGrayLinesBg} alt="lightGrayLinesBg" width={400} height={400} className="absolute inset-0 w-full h-full object-cover opacity-40" />
+          <Image src={lightGrayLinesBg} alt="lightGrayLinesBg" width={400} height={400} className="absolute inset-0 w-full h-full object-cover opacity-40" draggable="false" />
           <p className='text-base font-semibold'>@anurag__kochar</p>
 
           <span className='text-base font-semibold text-black'> Punjab | India </span>

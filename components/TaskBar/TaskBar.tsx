@@ -5,8 +5,8 @@ import TaskBarIcon from '../TaskBarIcon/TaskBarIcon'
 
 const TaskBar = () => {
   return (
-    <div className='z-50 absolute bottom-2 md:bottom-[5vh] lg:bottom-[7vh] w-[95%] sm:w-[80%] md:w-[60%] xl:w-[50%] 2xl:w-[40%] h-20 bg-black border border-black flex justify-center items-center rounded-lg'>
-      <div className='w-full h-full -mt-2 -ml-2 bg-[#F7CF59] border border-black flex justify-center items-center rounded-lg space-x-2'>
+    <div className='z-50 absolute bottom-2 md:bottom-[5vh] lg:bottom-[7vh] h-20 bg-black border border-black flex justify-center items-center rounded-lg'>
+      <div className='w-full h-full -mt-2 -ml-2 bg-[#F7CF59] border border-black flex justify-start items-center rounded-lg space-x-2 sm:space-x-5 px-5'>
 
         {/* Search Icon */}
 
@@ -21,7 +21,7 @@ const TaskBar = () => {
         {TaskBarIconsDataArray && TaskBarIconsDataArray?.map((icon) => {
           return <TaskBarIcon key={icon.id} icon={icon} />
         })}
-        
+
       </div>
     </div>
   )

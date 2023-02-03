@@ -16,7 +16,7 @@ export default function Home() {
 
         <MenuBar />
 
-        <div className='bg-green-400 w-full h-full relative grid grid-cols-12 auto-rows-min  overflow-x-hidden overflow-y-scroll scrollbar-hide'>
+        <div className='bg-green-400 w-full h-full relative grid grid-cols-12 auto-rows-min  overflow-x-hidden overflow-y-scroll '>
 
           <div className=' absolute left-0 bottom-0 top-0 bg-blue-500 w-full h-[50vh] xl:h-screen xl:w-full xl:col-start-1 xl:col-end-4'>  </div>
 
