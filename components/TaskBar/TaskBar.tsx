@@ -55,14 +55,14 @@ const TaskBar = () => {
         </div>
 
         {/* Contact icon */}
-        {/* <div className={`lg:hidden w-12 h-12 flex justify-center items-center bg-black border border-black`}>
+        <div className={`lg:hidden w-12 h-12 flex justify-center items-center bg-black border border-black`}>
           <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center bg-[#E7E7E7] text-white border-2 border-black`}>
             <MdMail className='text-black' size={"1.5rem"} />
           </div>
-        </div> */}
+        </div>
 
         {/* Download icon */}
-        <div className={`lg:hidden w-12 h-12 flex justify-center items-center bg-black border border-black hover:scale-110 transition-all duration-150 ease-in-out`}>
+        <div className={`lg:hidden w-12 h-12 flex justify-center items-center bg-black border border-black`}>
           <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center bg-[#00FD74] text-white border-2 border-black`}>
             <IoMdDownload className='text-black' size={"1.5rem"} />
           </div>
