@@ -9,16 +9,16 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className='w-full h-[100%] md:w-[95%] md:h-[95vh] flex justify-center items-center md:border-2 md:border-black bg-black'>
+    <main className='w-full h-[100%] md:w-[95%] md:h-[90vh] xl:w-[90%] xl:h-[90vh] flex justify-center items-center md:border-2 md:border-black bg-black overflow-hidden'>
 
       {/* Window */}
-      <div className='w-full h-full flex flex-col justify-start items-center md:border-2 md:border-black bg-blue-300 md:-mt-3 md:-ml-3 '>
+      <div className='w-full h-full flex flex-col justify-start items-center md:border-2 md:border-black bg-blue-300 md:-mt-2 md:-ml-2 overflow-x-hidden overflow-y-scroll'>
 
-        {/* <MenuBar /> */}
+        <MenuBar />
 
-        <div className='bg-green-400 w-full h-full relative grid grid-cols-12 auto-rows-min  overflow-x-hidden overflow-y-scroll pb-40 md:pb-0'>
+        <div className='bg-white w-full h-full relative grid grid-cols-12 auto-rows-min pb-40 md:pb-0'>
 
-          <div className=' absolute left-0 bottom-0 top-0 bg-blue-500 w-full h-[50vh] xl:h-screen xl:w-full xl:col-start-1 xl:col-end-4'>  </div>
+          <div className=' absolute left-0 bottom-0 top-0 bg-blue-500 w-full h-[50vh] xl:h-full xl:w-full xl:col-start-1 xl:col-end-4'>  </div>
 
           <AboutCard />
 

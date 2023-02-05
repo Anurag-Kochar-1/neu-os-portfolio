@@ -15,7 +15,7 @@ import { IoMdDownload } from "react-icons/io"
 
 const TaskBar = () => {
   return (
-    <div className='z-50 absolute bottom-2 md:bottom-[5vh] lg:bottom-[7vh] max-w-[95%] md:w-auto h-20 bg-black border border-black flex justify-center items-center rounded-lg'>
+    <div className='z-50 absolute bottom-2 md:bottom-[7vh] max-w-[95%] md:w-auto h-20 bg-black border border-black flex justify-center items-center rounded-lg'>
       <div className='w-full h-full -mt-2 -ml-2 bg-[#F7CF59] border border-black flex justify-start items-center rounded-lg space-x-2 sm:space-x-5 px-5'>
 
         {/* Search Icon - m */}
@@ -62,7 +62,7 @@ const TaskBar = () => {
         </div>
 
         {/* Download icon */}
-        <div className={`lg:hidden w-12 h-12 flex justify-center items-center bg-black border border-blackage`}>
+        <div className={`lg:hidden w-12 h-12 flex justify-center items-center bg-black border border-black`}>
           <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center bg-[#00FD74] text-white border-2 border-black`}>
             <IoMdDownload className='text-black' size={"1.5rem"} />
           </div>

@@ -7,8 +7,8 @@ import lightGrayLinesBg from "../../public/images/BGs/lightGrayLinesBg.png"
 
 const AboutCard = () => {
   return (
-    <div className='z-20 my-5 col-start-2 col-end-12 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11 xl:col-start-1 xl:col-end-7 xl:mx-5 2xl:col-start-1 2xl:col-end-6 2xl:mx-6  flex flex-col items-center justify-center border-2 border-black bg-black'>
-      <div className='w-full h-full -mt-2 -ml-2 flex flex-col justify-start items-center bg-white border-2 border-black'>
+    <div className='z-20 my-5 col-start-2 col-end-12 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11 xl:col-start-1 xl:col-end-7 xl:mx-5 2xl:col-start-1 2xl:col-end-6 2xl:mx-6 flex flex-col items-center justify-center border-2 border-black bg-black'>
+      <div className='w-full h-full -mt-3 -ml-3 flex flex-col justify-start items-center bg-white border-2 border-black'>
 
         {/* ----------- Header ----------- */}
         <div className='w-full h-10 flex justify-between items-center bg-black px-2'>
