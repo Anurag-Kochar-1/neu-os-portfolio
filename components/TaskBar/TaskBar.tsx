@@ -15,54 +15,56 @@ import { IoMdDownload } from "react-icons/io"
 
 const TaskBar = () => {
   return (
-    <div className='z-50 absolute bottom-2 md:bottom-[5vh] lg:bottom-[7vh] h-20 bg-black border border-black flex justify-center items-center rounded-lg'>
+    <div className='z-50 absolute bottom-2 md:bottom-[5vh] lg:bottom-[7vh] max-w-[95%] md:w-auto h-20 bg-black border border-black flex justify-center items-center rounded-lg'>
       <div className='w-full h-full -mt-2 -ml-2 bg-[#F7CF59] border border-black flex justify-start items-center rounded-lg space-x-2 sm:space-x-5 px-5'>
 
-        {/* Search Icon */}
-        <div className={`w-14 h-14 flex justify-center items-center bg-black border border-black hover:scale-110 transition-all duration-150 ease-in-out`}>
+        {/* Search Icon - m */}
+        <div className={`md:hidden w-12 h-12 flex justify-center items-center bg-black border border-black hover:scale-110 transition-all duration-150 ease-in-out`}>
           <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center bg-[#39DBFF] text-white border-2 border-black`}>
             <FaSearch className='text-black' size={"1.5rem"} />
           </div>
         </div>
 
+        {/* Search Icon - d */}
+        <div className={`hidden md:inline-flex w-14 h-14 justify-center items-center bg-black border border-black hover:scale-110 transition-all duration-150 ease-in-out`}>
+          <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center bg-[#39DBFF] text-white border-2 border-black`}>
+            <FaSearch className='text-black' size={"2rem"} />
+          </div>
+        </div>
         <div className='w-[2px] h-full border-r-2 border-r-black'></div>
 
-        {/* {TaskBarIconsDataArray && TaskBarIconsDataArray?.map((icon) => {
-          return <TaskBarIcon key={icon.id} icon={icon} />
-        })} */}
-
         {/* Skills icon */}
-        <div className={`lg:hidden w-14 h-14 flex justify-center items-center bg-black border border-black`}>
+        <div className={`lg:hidden w-12 h-12 flex justify-center items-center bg-black border border-black`}>
           <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center bg-[#FFFFB0] text-white border-2 border-black`}>
             <GiSkills className='text-black' size={"1.5rem"} />
           </div>
         </div>
 
         {/* Projects icon */}
-        <div className={`lg:hidden w-14 h-14 flex justify-center items-center bg-black border border-black`}>
+        <div className={`lg:hidden w-12 h-12 flex justify-center items-center bg-black border border-black`}>
           <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center bg-[#F9A47B] text-white border-2 border-black`}>
             <BsHammer className='text-black' size={"1.5rem"} />
           </div>
         </div>
 
         {/* About icon */}
-        <div className={`lg:hidden w-14 h-14 flex justify-center items-center bg-black border border-black`}>
+        <div className={`lg:hidden w-12 h-12 flex justify-center items-center bg-black border border-black`}>
           <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center bg-white text-white border-2 border-black`}>
             <BsPersonFill className='text-black' size={"1.5rem"} />
           </div>
         </div>
 
         {/* Contact icon */}
-        <div className={`lg:hidden w-14 h-14 flex justify-center items-center bg-black border border-black`}>
+        {/* <div className={`lg:hidden w-12 h-12 flex justify-center items-center bg-black border border-black`}>
           <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center bg-[#E7E7E7] text-white border-2 border-black`}>
             <MdMail className='text-black' size={"1.5rem"} />
           </div>
-        </div>
+        </div> */}
 
         {/* Download icon */}
-        <div className={`lg:hidden w-14 h-14 flex justify-center items-center bg-black border border-black hover:scale-110 transition-all duration-150 ease-in-out`}>
+        <div className={`lg:hidden w-12 h-12 flex justify-center items-center bg-black border border-black hover:scale-110 transition-all duration-150 ease-in-out`}>
           <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center bg-[#00FD74] text-white border-2 border-black`}>
-            <IoMdDownload className='text-black' size={"2rem"} />
+            <IoMdDownload className='text-black' size={"1.5rem"} />
           </div>
         </div>
 

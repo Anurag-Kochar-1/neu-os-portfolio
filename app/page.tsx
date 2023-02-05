@@ -9,12 +9,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className='w-full h-[100%]  flex justify-center items-center md:border-2 md:border-black bg-black'>
+    <main className='w-full h-[100%] lg:w-[95%] lg:h-[95vh] flex justify-center items-center md:border-2 md:border-black bg-black'>
 
       {/* Window */}
       <div className='w-full h-full flex flex-col justify-start items-center md:border-2 md:border-black bg-blue-300 md:-mt-3 md:-ml-3 '>
 
-        <MenuBar />
+        {/* <MenuBar /> */}
 
         <div className='bg-green-400 w-full h-full relative grid grid-cols-12 auto-rows-min  overflow-x-hidden overflow-y-scroll '>
 

@@ -10,7 +10,7 @@ export default function RootLayout({
     <html lang="en">
       <head />
 
-      <body className='bg-[#FF5C5C] w-full h-screen flex flex-col justify-center items-center md:p-5 lg:p-10'>
+      <body className='bg-[#FF5C5C] w-full h-screen flex flex-col justify-center items-center overflow-x-hidden'>
         {children}
         <TaskBar />
       </body>
