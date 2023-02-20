@@ -6,13 +6,14 @@ import AboutCard from '@/components/AboutCard/AboutCard'
 import FoldersContainer from '@/components/FoldersContainer/FoldersContainer'
 const inter = Inter({ subsets: ['latin'] })
 
+//  md:w-[95%] md:h-[90vh] xl:w-[90%] xl:h-[90vh]
 
 export default function Home() {
   return (
-    <main className='w-full h-[100%] md:w-[95%] md:h-[90vh] xl:w-[90%] xl:h-[90vh] flex justify-center items-center md:border-2 md:border-black bg-black overflow-hidden'>
+    <main className='w-full h-[100%] flex justify-center items-center md:border-0 md:border-black bg-black overflow-hidden'>
 
       {/* Window */}
-      <div className='w-full h-full flex flex-col justify-start items-center md:border-2 md:border-black bg-blue-300 md:-mt-2 md:-ml-2 overflow-x-hidden overflow-y-scroll'>
+      <div className='w-full h-full flex flex-col justify-start items-center md:border-0 md:border-black bg-blue-300 md:-mt-0 md:-ml-0 overflow-x-hidden overflow-y-scroll scrollbar-hide'>
 
         <MenuBar />
 

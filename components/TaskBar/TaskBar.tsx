@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useRef } from 'react'
 import { TaskBarIconsDataArray } from '@/constants/TaskBarIconsData/TaskBarIconsData'
 import TaskBarIcon from '../TaskBarIcon/TaskBarIcon'
 
@@ -14,6 +14,10 @@ import { IoMdDownload } from "react-icons/io"
 
 
 const TaskBar = () => {
+
+
+  const iconRef = useRef<HTMLDivElement | null>(null)
+
   return (
     <div className='z-50 absolute bottom-2 md:bottom-[7vh] max-w-[95%] md:w-auto h-20 bg-black border border-black flex justify-center items-center rounded-lg'>
       <div className='w-full h-full -mt-2 -ml-2 bg-[#F7CF59] border border-black flex justify-start items-center rounded-lg space-x-2 sm:space-x-5 px-5'>
@@ -72,7 +76,7 @@ const TaskBar = () => {
 
 
         {/* Music icon */}
-        <div className={`hidden lg:inline-flex w-14 h-14 justify-center items-center bg-black border border-black hover:scale-110 transition-all duration-150 ease-in-out`}>
+        <div className={`hidden lg:inline-flex w-14 h-14 justify-center items-center bg-black border border-black hover:scale-110 transition-all duration-150 ease-in-out`} ref={iconRef}>
           <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center bg-[#FD5D5D] text-white border-2 border-black`}>
             <RiMusic2Fill className='text-black' size={"2rem"} />
           </div>
