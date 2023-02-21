@@ -8,14 +8,14 @@ import AboutCard from '@/components/AboutCard/AboutCard'
 import FoldersContainer from '@/components/FoldersContainer/FoldersContainer'
 import Folder from '@/components/Folder/Folder'
 import TaskBar from '@/components/TaskBar/TaskBar'
-import FolderContextProvider from '@/context/FolderContext/FolderContextProvider'
+import AppContextProvider from '@/context/AppContext'
 const inter = Inter({ subsets: ['latin'] })
 
 //  md:w-[95%] md:h-[90vh] xl:w-[90%] xl:h-[90vh]
 
 export default function Home() {
   return (
-    <FolderContextProvider>
+    <AppContextProvider>
       <main className='w-full h-[100%] flex justify-center items-center md:border-0 md:border-black bg-black overflow-hidden'>
         {/* Window */}
         <div className='w-full h-full flex flex-col justify-start items-center md:border-0 md:border-black bg-blue-300 md:-mt-0 md:-ml-0 overflow-x-hidden overflow-y-scroll scrollbar-hide'>
@@ -24,13 +24,11 @@ export default function Home() {
             <div className=' absolute left-0 bottom-0 top-0 bg-blue-500 w-full h-[50vh] xl:h-full xl:w-full xl:col-start-1 xl:col-end-4'>  </div>
             <AboutCard />
             <FoldersContainer />
-
           </div>
         </div>
-
         <TaskBar />
         <Folder />
       </main>
-    </FolderContextProvider>
+    </AppContextProvider>
   )
 }
