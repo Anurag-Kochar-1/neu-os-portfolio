@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useContext } from 'react'
+import React, { useContext, useRef, MouseEvent } from 'react'
 import { AppContext, IAppContextType } from '@/context/AppContext'
 import Draggable from 'react-draggable';
 import { useSearchParams } from 'next/navigation';
@@ -11,25 +11,34 @@ import { skillsData } from '@/data/skiils';
 
 
 const Folder = () => {
-    const { isFolderOpen, setIsFolderOpen } = useContext<IAppContextType>(AppContext)
-
+    // const { isFolderOpen, setIsFolderOpen } = useContext<IAppContextType>(AppContext)
+    const router = useRouter()
     const searchParams = useSearchParams();
     const folderName = searchParams.get('folder');
+    const containerRef = useRef<HTMLDivElement | null>(null)
+    const folderRef = useRef<HTMLDivElement | null>(null)
 
+    const handleOverlayClick = (e: MouseEvent<HTMLButtonElement | HTMLDivElement>) => {
+        console.log(e.target)
+        if (e.target === containerRef.current && e.target !== folderRef.current) {
+            router.push('/')
+        }
+    }
 
-
-    // if (!isFolderOpen) return null
 
     if (!folderName) return null
 
     return (
         <div
-            className='z-30 fixed inset-0 w-full h-screen bg-black/[.70] flex justify-center items-center'>
+            className='z-30 fixed inset-0 w-full h-screen bg-black/[.90] flex justify-center items-center'
+            ref={containerRef}
+            onClick={(e) => handleOverlayClick(e)}
+        >
             <Draggable
                 handle='.headerHandle'
                 bounds="parent"
             >
-                <div className='w-[70%] h-[70vh] bg-white'>
+                <div className='w-[70%] h-[70vh] bg-white' ref={folderRef}>
                     <div className='headerHandle w-full h-12 bg-black flex justify-between items-center'>
                         <Link
                             href={'/'}
@@ -44,7 +53,15 @@ const Folder = () => {
                     <h1 className='text-8xl text-black'> {folderName} </h1>
 
                     {folderName === 'Projects' && projectsData?.map((project) => {
-                        return <h1 key={project.projectName}> {project.projectName} </h1>
+                        return (
+                            <Link
+                                href={`/?folder=${folderName}?subFolder=${project?.projectName}`}
+                                key={project.projectName}
+                                className="p-2 text-sky-400 m-2 text-4xl"
+                            >
+                                {project.projectName}
+                            </Link>
+                        )
                     })}
 
 
