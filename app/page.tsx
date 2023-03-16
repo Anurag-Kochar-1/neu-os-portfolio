@@ -11,9 +11,18 @@ import TaskBar from '@/components/TaskBar/TaskBar'
 import AppContextProvider from '@/context/AppContext'
 const inter = Inter({ subsets: ['latin'] })
 
-//  md:w-[95%] md:h-[90vh] xl:w-[90%] xl:h-[90vh]
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
+
+  const router = useRouter()
+
+  function handleOpenModal() {
+    router.push('/folder');
+  }
+
+
+
   return (
     <AppContextProvider>
       <main className='w-full h-[100%] flex justify-center items-center md:border-0 md:border-black bg-black overflow-hidden'>
@@ -24,6 +33,8 @@ export default function Home() {
             <div className=' absolute left-0 bottom-0 top-0 bg-blue-500 w-full h-[50vh] xl:h-full xl:w-full xl:col-start-1 xl:col-end-4'>  </div>
             <AboutCard />
             <FoldersContainer />
+
+            {/* <button className='text-9xl' onClick={handleOpenModal}>Open Modal</button> */}
           </div>
         </div>
         <TaskBar />
