@@ -44,12 +44,12 @@ const Folder = () => {
                     <h1 className='text-8xl text-black'> {folderName} </h1>
 
                     {folderName === 'Projects' && projectsData?.map((project) => {
-                        return <h1> {project.projectName} </h1>
+                        return <h1 key={project.projectName}> {project.projectName} </h1>
                     })}
 
 
                     {folderName === 'Skills' && skillsData?.map((skill: any) => {
-                        return <h1> {skill.skillName} </h1>
+                        return <h1 key={skill.skillName}> {skill.skillName} </h1>
                     })}
 
 
