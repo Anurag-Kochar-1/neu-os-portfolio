@@ -6,7 +6,7 @@ import FolderCard from '../FolderCard/FolderCard'
 
 const FoldersContainer = () => {
   return (
-    <div className='col-start-2 col-end-12 xl:col-start-7 xl:col-end-11 2xl:col-start-7 2xl:col-end-10 flex flex-wrap justify-between items-center xl:space-x-5'>
+    <div className='col-start-2 col-end-12 xl:col-start-7 xl:col-end-11 2xl:col-start-7 2xl:col-end-10 flex flex-wrap justify-between items-center xl:space-x-5 pb-72 lg:pb-0'>
       {FoldersDataArray && FoldersDataArray?.map((folder) => {
         return <FolderCard key={folder.id} folder={folder} />
       })}

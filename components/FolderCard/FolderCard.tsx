@@ -1,6 +1,4 @@
-"use client"
-
-import React, { useContext } from 'react'
+import React from 'react'
 import { IFolderData } from '@/constants/FoldersData/FoldersData'
 import folderIcon from "../../public/images/folderIcon.png"
 import Image from 'next/image'
@@ -14,18 +12,13 @@ interface IProps {
 
 
 const FolderCard = ({ folder }: IProps) => {
-  const { isFolderOpen, setIsFolderOpen } = useContext<IAppContextType>(AppContext)
 
 
   return (
     <Link
       href={`?folder=${folder.folderName}`}
-      // as={`/folder/${folder.folderName}`}
-      onClick={() => {
-        // setIsFolderOpen(!isFolderOpen)
-      }}
       className='flex flex-col justify-start items-center space-y-2 m-1 hover:scale-105'>
-      <Image src={folderIcon} alt={folder.folderName} width={400} height={400} className="w-20 xl:w-32" draggable="false" />
+      <Image src={folderIcon} alt={folder.folderName} width={400} height={400} className="w-20 sm:w-28 lg:w-32 aspect-square" draggable="false" />
       <h3 className='text-black text-xl font-bold'> {folder.folderName} </h3>
     </Link>
   )

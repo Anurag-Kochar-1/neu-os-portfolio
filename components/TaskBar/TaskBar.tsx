@@ -19,7 +19,7 @@ const TaskBar = () => {
   const iconRef = useRef<HTMLDivElement | null>(null)
 
   return (
-    <div className='fixed bottom-2 md:bottom-[7vh] max-w-[95%] md:w-auto h-20 bg-black border border-black flex justify-center items-center rounded-lg'>
+    <div className='z-50 fixed bottom-2 md:bottom-[7vh] max-w-[95%] md:w-auto h-20 bg-black border border-black flex justify-center items-center rounded-lg'>
       <div className='w-full h-full -mt-2 -ml-2 bg-[#F7CF59] border border-black flex justify-start items-center rounded-lg space-x-2 sm:space-x-5 px-5'>
 
         {/* Search Icon - m */}

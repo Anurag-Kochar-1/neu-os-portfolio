@@ -15,6 +15,7 @@ const Folder = () => {
     const router = useRouter()
     const searchParams = useSearchParams();
     const folderName = searchParams.get('folder');
+    const subFolderName = searchParams.get('subFolder');
     const containerRef = useRef<HTMLDivElement | null>(null)
     const folderRef = useRef<HTMLDivElement | null>(null)
 
@@ -55,7 +56,7 @@ const Folder = () => {
                     {folderName === 'Projects' && projectsData?.map((project) => {
                         return (
                             <Link
-                                href={`/?folder=${folderName}?subFolder=${project?.projectName}`}
+                                href={`/?folder=${folderName}&subFolder=${project.projectName}`}
                                 key={project.projectName}
                                 className="p-2 text-sky-400 m-2 text-4xl"
                             >
@@ -68,6 +69,15 @@ const Folder = () => {
                     {folderName === 'Skills' && skillsData?.map((skill: any) => {
                         return <h1 key={skill.skillName}> {skill.skillName} </h1>
                     })}
+
+
+
+                    {subFolderName && (
+                        <div>
+                            <h1 className='text-8xl'> subFolderName :  {subFolderName}</h1>
+                        </div>
+                    )}
+
 
 
                 </div>
