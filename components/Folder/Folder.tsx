@@ -43,15 +43,12 @@ const Folder = () => {
                     <div className='headerHandle w-full h-12 bg-black flex justify-between items-center'>
                         <Link
                             href={'/'}
-                            className='w-20 h-full bg-blue-400 text-3xl text-red-600'
-                        // onClick={() => {
-                        //     setIsFolderOpen(!isFolderOpen)
-                        // }}
+                            className='text-4xl text-red-600'
                         > X
                         </Link>
                     </div>
 
-                    <h1 className='text-8xl text-black'> {folderName} </h1>
+                    {/* <h1 className='text-8xl text-black'> {folderName} </h1>
 
                     {folderName === 'Projects' && projectsData?.map((project) => {
                         return (
@@ -76,7 +73,7 @@ const Folder = () => {
                         <div>
                             <h1 className='text-8xl'> subFolderName :  {subFolderName}</h1>
                         </div>
-                    )}
+                    )} */}
 
 
 
