@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import { ITaskBarIconsData } from "../../constants/TaskBarIconsData/TaskBarIconsData"
+import { ITaskBarIconsData } from "../../constants/data/TaskBarIconsData/TaskBarIconsData"
 import { IoMdDownload } from "react-icons/io"
 import { MdMail } from "react-icons/md"
 import { BsFillPersonFill, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs"

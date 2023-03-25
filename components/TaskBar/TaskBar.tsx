@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useRef } from 'react'
-import { TaskBarIconsDataArray } from '@/constants/TaskBarIconsData/TaskBarIconsData'
+import { TaskBarIconsDataArray } from '@/constants/data/TaskBarIconsData/TaskBarIconsData'
 import TaskBarIcon from '../TaskBarIcon/TaskBarIcon'
 
 // Icons Import

@@ -4,5 +4,6 @@
 
 
 * {
-    cursor: url(../public/images/cursors/cursorOne.png), auto
+    /* cursor: url(../public/images/cursors/cursorOne.png), auto */
+    cursor: auto
 }
