@@ -44,7 +44,7 @@ const Folder = () => {
 
   return (
     <div
-      className="z-30 fixed inset-0 w-full h-screen bg-black/[.50] flex justify-center items-center "
+      className="z-30 fixed inset-0 w-full h-screen bg-black/[.50] flex justify-center items-center"
       ref={containerRef}
       onClick={(e) => handleOverlayClick(e)}
     >
@@ -56,11 +56,13 @@ const Folder = () => {
           ref={folderRef}
         >
           {/* HEADER */}
-          <div className="headerHandle w-full h-12 bg-black flex justify-between items-center px-5">
-            <span>.</span>
-            <h2 className="font-semibold text-xl text-white"> {folderName} </h2>
+          <div className="headerHandle w-full h-12 bg-black flex  items-center px-5">
+            {/* <span>.</span> */}
+            <h2 className="font-semibold w-full text-center text-xl text-white">
+              {folderName}
+            </h2>
             {/* Folder Buttons */}
-            <div className="flex justify-center items-center space-x-3">
+            <div className="flex items-center ml-auto space-x-3">
               <FolderHeaderButton
                 buttonColor={`bg-[#FFB443]`}
                 buttonName="close"
@@ -83,8 +85,7 @@ const Folder = () => {
           </div>
 
           <p className="text-5xl font-semibold">
-            This Project is under construction -{" "}
-            {isFolderMaximized ? "true" : "false"}
+            This Project is under construction
           </p>
 
           {/* <div className="flex justify-start items-center flex-wrap space-x-5">

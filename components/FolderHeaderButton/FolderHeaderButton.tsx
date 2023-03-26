@@ -16,15 +16,14 @@ const FolderHeaderButton = ({
   buttonColor,
 }: IProps) => {
   return (
-    // <div className="w-7 h-7 flex justify-center items-center bg-black border-2 border-black">
-    // <div className={`w-7 h-7 bg-red-600 -ml-3 -mt-3`}></div>
     <div
       className={`w-7 h-7 ${buttonColor}  rounded-sm flex justify-center items-center hover:cursor-pointer`}
       onClick={onClick}
     >
-      {buttonIcon}
+      {React.cloneElement(buttonIcon as React.ReactElement, {
+        className: `pointer-events-none`,
+      })}
     </div>
-    // </div>
   );
 };
 
