@@ -5,20 +5,26 @@ import React from "react";
 interface IProps {
   onClick: () => void;
   buttonName: string;
-  buttonIcon: string;
+  buttonIcon: any;
   buttonColor: string;
 }
 
-const FolderHeaderButton = () => {
+const FolderHeaderButton = ({
+  onClick,
+  buttonName,
+  buttonIcon,
+  buttonColor,
+}: IProps) => {
   return (
+    // <div className="w-7 h-7 flex justify-center items-center bg-black border-2 border-black">
+    // <div className={`w-7 h-7 bg-red-600 -ml-3 -mt-3`}></div>
     <div
-      onClick={() => console.log(1)}
-      className={`inline-flex w-10 h-10 justify-center items-center bg-gray-400 border border-black  hover:scale-110 `}
+      className={`w-7 h-7 ${buttonColor}  rounded-sm flex justify-center items-center hover:cursor-pointer`}
+      onClick={onClick}
     >
-      <div
-        className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center border-2 border-black bg-blue-400`}
-      ></div>
+      {buttonIcon}
     </div>
+    // </div>
   );
 };
 
