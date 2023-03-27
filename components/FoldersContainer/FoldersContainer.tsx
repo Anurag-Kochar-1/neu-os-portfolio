@@ -11,7 +11,7 @@ const FoldersContainer = () => {
             key={folder?.id}
             folderName={folder.folderName}
             folderIcon={folder.folderIcon}
-            color={folder.color}
+            bgColor={folder.bgColor}
             folderLinkHref={folder.folderLinkHref}
           />
         );
