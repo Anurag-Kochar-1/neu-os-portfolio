@@ -52,17 +52,17 @@ const Folder = () => {
         <div
           className={`${
             isFolderMaximized ? "w-[100%] h-[100vh]" : "w-[70%] h-[70vh]"
-          } bg-white border-2 border-black rounded-lg`}
+          } relative bg-gray-300 border-2 border-black rounded-lg overflow-x-hidden overflow-y-auto`}
           ref={folderRef}
         >
           {/* HEADER */}
-          <div className="headerHandle w-full h-12 bg-black flex  items-center px-5 hover:cursor-move">
+          <div className="headerHandle sticky top-0 right-0 left-0 w-full h-12 bg-black flex items-center px-5 hover:cursor-move">
             {/* <span>.</span> */}
             <h2 className="font-semibold w-full text-center text-xl text-white pointer-events-none">
               {folderName}
             </h2>
             {/* Folder Buttons */}
-            <div className="flex items-center ml-auto space-x-3 ">
+            <div className="flex items-center ml-auto space-x-3">
               <FolderHeaderButton
                 buttonColor={`bg-[#FFB443]`}
                 buttonName="close"
@@ -94,7 +94,8 @@ const Folder = () => {
             This Project is under construction
           </p> */}
 
-          <div className="flex justify-start items-center flex-wrap">
+          {/* ----- SKILLS ----- */}
+          <div className="w-full flex justify-center md:justify-start items-center flex-wrap bg-blue-400 ">
             {folderName === "Skills" &&
               SkillsData?.map((skill) => {
                 return (
