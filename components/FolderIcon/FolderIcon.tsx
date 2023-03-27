@@ -13,11 +13,11 @@ const FolderIcon = ({
   return (
     <Link
       href={folderLinkHref}
-      className="flex flex-col justify-center items-center space-y-2 m-5"
+      className="flex flex-col justify-center items-center space-y-2 m-5 hover:cursor-pointer"
       onClick={onClick}
     >
       <div
-        className={`w-32 h-32 flex flex-col justify-center items-center bg-black border-2 border-black rounded-sm`}
+        className={`w-32 h-32 flex flex-col justify-center items-center bg-black border-2 border-black rounded-sm pointer-events-none`}
       >
         <div
           className={`w-32 h-32 bg-white flex flex-col justify-center items-center border-4 border-black -ml-5 -mt-5 rounded-sm`}
@@ -32,7 +32,7 @@ const FolderIcon = ({
           />
         </div>
       </div>
-      <h3 className="mt-10 text-black text-xl font-bold"> {folderName} </h3>
+      <h3 className="mt-10 text-black text-xl font-bold hover:cursor-pointer"> {folderName} </h3>
     </Link>
   );
 };

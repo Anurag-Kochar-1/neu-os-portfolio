@@ -52,7 +52,7 @@ const Folder = () => {
         <div
           className={`${
             isFolderMaximized ? "w-[100%] h-[100vh]" : "w-[70%] h-[70vh]"
-          } relative bg-gray-300 border-2 border-black rounded-lg overflow-x-hidden overflow-y-auto`}
+          } relative bg-white border-2 border-black rounded-lg overflow-x-hidden overflow-y-auto`}
           ref={folderRef}
         >
           {/* HEADER */}
@@ -90,12 +90,12 @@ const Folder = () => {
             </div>
           </div>
 
-          {/* <p className="text-5xl font-semibold">
+          <p className="w-full text-center my-10 text-5xl font-semibold">
             This Project is under construction
-          </p> */}
+          </p>
 
           {/* ----- SKILLS ----- */}
-          <div className="w-full flex justify-center md:justify-start items-center flex-wrap bg-blue-400 ">
+          {/* <div className="w-full flex justify-center md:justify-start items-center flex-wrap py-10">
             {folderName === "Skills" &&
               SkillsData?.map((skill) => {
                 return (
@@ -108,7 +108,8 @@ const Folder = () => {
                   />
                 );
               })}
-          </div>
+          </div> */}
+
         </div>
       </Draggable>
     </div>
