@@ -17,7 +17,7 @@ import FolderIcon from "../FolderIcon/FolderIcon";
 import FolderHeaderButton from "../FolderHeaderButton/FolderHeaderButton";
 
 import { IoClose } from "react-icons/io5";
-import { FiMaximize2 } from "react-icons/fi";
+import { FiMaximize2, FiMinimize2 } from "react-icons/fi";
 import { FaMinus } from "react-icons/fa";
 
 const Folder = () => {
@@ -56,17 +56,23 @@ const Folder = () => {
           ref={folderRef}
         >
           {/* HEADER */}
-          <div className="headerHandle w-full h-12 bg-black flex  items-center px-5">
+          <div className="headerHandle w-full h-12 bg-black flex  items-center px-5 hover:cursor-move">
             {/* <span>.</span> */}
-            <h2 className="font-semibold w-full text-center text-xl text-white">
+            <h2 className="font-semibold w-full text-center text-xl text-white pointer-events-none">
               {folderName}
             </h2>
             {/* Folder Buttons */}
-            <div className="flex items-center ml-auto space-x-3">
+            <div className="flex items-center ml-auto space-x-3 ">
               <FolderHeaderButton
                 buttonColor={`bg-[#FFB443]`}
                 buttonName="close"
-                buttonIcon={<FaMinus size={"1.3rem"} />}
+                buttonIcon={
+                  isFolderMaximized ? (
+                    <FiMinimize2 size={"1.3rem"} />
+                  ) : (
+                    <FaMinus size={"1.3rem"} />
+                  )
+                }
                 onClick={() => router.push(`/`)}
               />
               <FolderHeaderButton
@@ -84,23 +90,24 @@ const Folder = () => {
             </div>
           </div>
 
-          <p className="text-5xl font-semibold">
+          {/* <p className="text-5xl font-semibold">
             This Project is under construction
-          </p>
+          </p> */}
 
-          {/* <div className="flex justify-start items-center flex-wrap space-x-5">
+          <div className="flex justify-start items-center flex-wrap">
             {folderName === "Skills" &&
               SkillsData?.map((skill) => {
                 return (
                   <FolderIcon
+                    key={skill.skillName}
                     folderName={skill.skillName}
-                    folderIcon={`/folderIcon.png`}
-                    folderLinkHref={`/?folder=${skill.skillName}`}
-                    color={`red`}
+                    folderIcon={`/images/skillIcons/${skill.skillIcon}`}
+                    folderLinkHref={`/`}
+                    bgColor={`${skill?.skillBgColor}`}
                   />
                 );
               })}
-          </div> */}
+          </div>
         </div>
       </Draggable>
     </div>

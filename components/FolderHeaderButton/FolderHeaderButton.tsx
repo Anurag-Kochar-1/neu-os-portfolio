@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React from "react";
 
@@ -17,7 +17,7 @@ const FolderHeaderButton = ({
 }: IProps) => {
   return (
     <div
-      className={`w-7 h-7 ${buttonColor}  rounded-sm flex justify-center items-center hover:cursor-pointer`}
+      className={`w-7 h-7 ${buttonColor}  rounded-sm flex justify-center items-center hover:cursor-pointer folderClose`}
       onClick={onClick}
     >
       {React.cloneElement(buttonIcon as React.ReactElement, {
