@@ -9,25 +9,23 @@ const FolderIcon = ({
   folderLinkHref,
   onClick,
   bgColor,
-
 }: IFolderIcon) => {
-
   const getFolderIconBgColor = () => {
     switch (folderName) {
-      case 'HTML':
-        return `bg-[#FFBCAB]`
-      
+      case "HTML":
+        return `bg-[#FFBCAB]`;
+
       case "CSS":
-        return `bg-[#AFE2FF]`
+        return `bg-[#AFE2FF]`;
 
       case "JavaScript":
         return `bg-[#FEF6B3]`;
 
       case "TypeScript":
-          return `bg-[#AFDFFF]`;
+        return `bg-[#AFDFFF]`;
 
       case "React JS":
-        return  `bg-[#D4F9FF]`;
+        return `bg-[#D4F9FF]`;
 
       case "Next JS":
         return `bg-[#E8E8E8]`;
@@ -39,10 +37,10 @@ const FolderIcon = ({
         return `bg-[#B3B3B3]`;
 
       case `MongoDB`:
-        return `bg-[#C8FFB0]`
+        return `bg-[#C8FFB0]`;
 
       case `Firebase`:
-        return `bg-[#FFF0C8]`
+        return `bg-[#FFF0C8]`;
 
       case `Redux`:
         return `bg-[#D5BAFF]`;
@@ -50,10 +48,22 @@ const FolderIcon = ({
       case `Tailwind CSS`:
         return `bg-[#C9F7FF]`;
 
+      case `Skills`:
+        return `bg-[#FFFFB0]`;
+
+      case `Projects`:
+        return `bg-[#F9A47B]`;
+
+      case `About`:
+        return `bg-[#FFFFFF]`;
+
+      case `Contact`:
+        return `bg-[#E7E7E7]`;
+
       default:
         return `bg-white`;
     }
-  }
+  };
 
   return (
     <Link
@@ -62,7 +72,6 @@ const FolderIcon = ({
       onClick={onClick}
     >
       <div
-        
         className={`w-32 h-32 flex flex-col justify-center items-center bg-black border-2 border-black rounded-sm pointer-events-none`}
       >
         <div
@@ -78,7 +87,10 @@ const FolderIcon = ({
           />
         </div>
       </div>
-      <h3 className="mt-10 text-black text-xl font-bold hover:cursor-pointer"> {folderName} </h3>
+      <h3 className="mt-10 text-black text-xl font-bold hover:cursor-pointer">
+        {" "}
+        {folderName}{" "}
+      </h3>
     </Link>
   );
 };

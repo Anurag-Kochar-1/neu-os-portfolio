@@ -6,6 +6,7 @@ import React, {
   MouseEvent,
   useEffect,
   useState,
+
 } from "react";
 import { AppContext, IAppContextType } from "@/context/AppContext";
 import Draggable from "react-draggable";
@@ -16,6 +17,7 @@ import { SkillsData } from "../../constants/data/SkillsData/SkillsData";
 import FolderIcon from "../FolderIcon/FolderIcon";
 import FolderHeaderButton from "../FolderHeaderButton/FolderHeaderButton";
 
+// ICONS IMPORT
 import { IoClose } from "react-icons/io5";
 import { FiMaximize2, FiMinimize2 } from "react-icons/fi";
 import { FaMinus } from "react-icons/fa";
@@ -64,7 +66,7 @@ const Folder = () => {
         <div
           className={`${
             isFolderMaximized ? "w-[100%] h-[100vh]" : "w-[90%] h-[90vh] md:w-[70%] md:h-[70vh]"
-          } relative ${getFolderBgColor()} border-4 border-black rounded-md overflow-x-hidden overflow-y-auto`}
+          } relative ${getFolderBgColor()} border-4 border-black rounded-md overflow-x-hidden overflow-y-auto `}
           ref={folderRef}
         >
           {/* HEADER */}
