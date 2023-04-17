@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import { ITaskBarIconsData } from "../../constants/data/TaskBarIconsData/TaskBarIconsData"
+// import { ITaskBarIconsData } from "../../constants/data/TaskBarIconsData/TaskBarIconsData"
 import { IoMdDownload } from "react-icons/io"
 import { MdMail } from "react-icons/md"
 import { BsFillPersonFill, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs"
@@ -11,7 +11,7 @@ import {RiMusic2Fill} from "react-icons/ri"
 // hover:-mt-0 hover:-ml-0 
 
 interface IProps {
-    icon: ITaskBarIconsData
+    icon: any
 }
 
 const TaskBarIcon = ({ icon }: IProps) => {
