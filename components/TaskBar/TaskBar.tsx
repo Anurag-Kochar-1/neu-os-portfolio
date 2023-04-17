@@ -42,9 +42,9 @@ const TaskBar = () => {
         {TaskBarIconsDataArray &&
           TaskBarIconsDataArray?.map((taskBarIcon) => {
             return (
-              <Tooltip content={taskBarIcon.iconName}>
+              <Tooltip content={taskBarIcon.iconName} key={taskBarIcon.id}>
                 <div
-                  key={taskBarIcon.id}
+                  
                   className={`${
                     taskBarIcon?.isVisibleOnMobile
                       ? "inline-flex"
