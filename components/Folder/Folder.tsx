@@ -26,10 +26,22 @@ const Folder = () => {
   const searchParams = useSearchParams();
   const folderName = searchParams.get("folder");
   const subFolderName = searchParams.get("subFolder");
+  
+    // ----- STATES ----
+    const [isFolderMaximized, setIsFolderMaximized] = useState<boolean>(false);
+
+  // ---- REFS ----
   const containerRef = useRef<HTMLDivElement | null>(null);
   const folderRef = useRef<HTMLDivElement | null>(null);
 
-  const [isFolderMaximized, setIsFolderMaximized] = useState<boolean>(false);
+  const getFolderBgColor = () => {
+    switch (folderName) {
+      case 'Skills':
+        return `bg-[#644BDF]`
+      default:
+        return `bg-black`;
+    }
+  }
 
   const handleOverlayClick = (
     e: MouseEvent<HTMLButtonElement | HTMLDivElement>
@@ -52,11 +64,11 @@ const Folder = () => {
         <div
           className={`${
             isFolderMaximized ? "w-[100%] h-[100vh]" : "w-[70%] h-[70vh]"
-          } relative bg-white border-2 border-black rounded-lg overflow-x-hidden overflow-y-auto`}
+          } relative ${getFolderBgColor()} border-4 border-black rounded-md overflow-x-hidden overflow-y-auto`}
           ref={folderRef}
         >
           {/* HEADER */}
-          <div className="headerHandle sticky top-0 right-0 left-0 w-full h-12 bg-black flex items-center px-5 hover:cursor-move">
+          <div className="headerHandle sticky top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex items-center px-5 hover:cursor-move">
             {/* <span>.</span> */}
             <h2 className="font-semibold w-full text-center text-xl text-white pointer-events-none">
               {folderName}
@@ -66,19 +78,19 @@ const Folder = () => {
               <FolderHeaderButton
                 buttonColor={`bg-[#FFB443]`}
                 buttonName="close"
-                buttonIcon={
-                  isFolderMaximized ? (
-                    <FiMinimize2 size={"1.3rem"} />
-                  ) : (
-                    <FaMinus size={"1.3rem"} />
-                  )
-                }
+                buttonIcon={<FaMinus size={"1.3rem"} />}
                 onClick={() => router.push(`/`)}
               />
               <FolderHeaderButton
                 buttonColor={`bg-[#00FE74]`}
                 buttonName="close"
-                buttonIcon={<FiMaximize2 size={"1.3rem"} />}
+                buttonIcon={
+                  isFolderMaximized ? (
+                    <FiMinimize2 size={"1.3rem"} />
+                  ) : (
+                    <FiMaximize2 size={"1.3rem"} />
+                  )
+                }
                 onClick={() => setIsFolderMaximized(!isFolderMaximized)}
               />
               <FolderHeaderButton
@@ -90,12 +102,12 @@ const Folder = () => {
             </div>
           </div>
 
-          <p className="w-full text-center my-10 text-5xl font-semibold">
+          {/* <p className="w-full text-center my-10 text-5xl font-semibold">
             This Project is under construction
-          </p>
+          </p> */}
 
           {/* ----- SKILLS ----- */}
-          {/* <div className="w-full flex justify-center md:justify-start items-center flex-wrap py-10">
+          <div className="w-full flex justify-center md:justify-start items-center flex-wrap py-10">
             {folderName === "Skills" &&
               SkillsData?.map((skill) => {
                 return (
@@ -108,12 +120,11 @@ const Folder = () => {
                   />
                 );
               })}
-          </div> */}
-
+          </div>
         </div>
       </Draggable>
     </div>
   );
 };
 
-export default Folder;
+export default React.memo(Folder);

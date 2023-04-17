@@ -16,15 +16,17 @@ const FolderHeaderButton = ({
   buttonColor,
 }: IProps) => {
   return (
-    <div
-      className={`w-7 h-7 ${buttonColor}  rounded-sm flex justify-center items-center hover:cursor-pointer folderClose`}
-      onClick={onClick}
-    >
-      {React.cloneElement(buttonIcon as React.ReactElement, {
-        className: `pointer-events-none`,
-      })}
+    <div className=" w-7 h-7 bg-black border border-black">
+        <div
+        className={` w-7 h-7 -mt-1 -ml-1 ${buttonColor} border border-black  rounded-sm flex justify-center items-center hover:cursor-pointer folderClose`}
+        onClick={onClick}
+        >
+        {React.cloneElement(buttonIcon as React.ReactElement, {
+          className: `pointer-events-none`,
+        })}
+      </div>
     </div>
   );
 };
 
-export default FolderHeaderButton;
+export default React.memo(FolderHeaderButton);
