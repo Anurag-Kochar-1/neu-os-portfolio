@@ -40,6 +40,8 @@ const Folder = () => {
     switch (folderName) {
       case "Skills":
         return `bg-[#644BDF]`;
+      case "Projects":
+        return `bg-[#E05151]`
       default:
         return `bg-white`;
     }
