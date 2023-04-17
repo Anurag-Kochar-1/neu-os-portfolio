@@ -26,9 +26,9 @@ const Folder = () => {
   const searchParams = useSearchParams();
   const folderName = searchParams.get("folder");
   const subFolderName = searchParams.get("subFolder");
-  
-    // ----- STATES ----
-    const [isFolderMaximized, setIsFolderMaximized] = useState<boolean>(false);
+
+  // ----- STATES ----
+  const [isFolderMaximized, setIsFolderMaximized] = useState<boolean>(false);
 
   // ---- REFS ----
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -36,12 +36,12 @@ const Folder = () => {
 
   const getFolderBgColor = () => {
     switch (folderName) {
-      case 'Skills':
-        return `bg-[#644BDF]`
+      case "Skills":
+        return `bg-[#644BDF]`;
       default:
-        return `bg-black`;
+        return `bg-white`;
     }
-  }
+  };
 
   const handleOverlayClick = (
     e: MouseEvent<HTMLButtonElement | HTMLDivElement>
@@ -63,7 +63,7 @@ const Folder = () => {
       <Draggable handle=".headerHandle" bounds="parent">
         <div
           className={`${
-            isFolderMaximized ? "w-[100%] h-[100vh]" : "w-[70%] h-[70vh]"
+            isFolderMaximized ? "w-[100%] h-[100vh]" : "w-[90%] h-[90vh] md:w-[70%] md:h-[70vh]"
           } relative ${getFolderBgColor()} border-4 border-black rounded-md overflow-x-hidden overflow-y-auto`}
           ref={folderRef}
         >
@@ -102,10 +102,6 @@ const Folder = () => {
             </div>
           </div>
 
-          {/* <p className="w-full text-center my-10 text-5xl font-semibold">
-            This Project is under construction
-          </p> */}
-
           {/* ----- SKILLS ----- */}
           <div className="w-full flex justify-center md:justify-start items-center flex-wrap py-10">
             {folderName === "Skills" &&
@@ -115,11 +111,17 @@ const Folder = () => {
                     key={skill.skillName}
                     folderName={skill.skillName}
                     folderIcon={`/images/skillIcons/${skill.skillIcon}`}
-                    folderLinkHref={`/`}
+                    folderLinkHref={`/?folder=Skills`}
                     bgColor={`${skill?.skillBgColor}`}
                   />
                 );
               })}
+
+            {folderName !== "Skills" && (
+              <p className="w-full text-center my-10 text-5xl font-semibold">
+                This Folder is under construction
+              </p>
+            )}
           </div>
         </div>
       </Draggable>

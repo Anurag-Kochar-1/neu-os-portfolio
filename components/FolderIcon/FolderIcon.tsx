@@ -9,18 +9,64 @@ const FolderIcon = ({
   folderLinkHref,
   onClick,
   bgColor,
+
 }: IFolderIcon) => {
+
+  const getFolderIconBgColor = () => {
+    switch (folderName) {
+      case 'HTML':
+        return `bg-[#FFBCAB]`
+      
+      case "CSS":
+        return `bg-[#AFE2FF]`
+
+      case "JavaScript":
+        return `bg-[#FEF6B3]`;
+
+      case "TypeScript":
+          return `bg-[#AFDFFF]`;
+
+      case "React JS":
+        return  `bg-[#D4F9FF]`;
+
+      case "Next JS":
+        return `bg-[#E8E8E8]`;
+
+      case "Node JS":
+        return `bg-[#E4FFA4]`;
+
+      case `Express JS`:
+        return `bg-[#B3B3B3]`;
+
+      case `MongoDB`:
+        return `bg-[#C8FFB0]`
+
+      case `Firebase`:
+        return `bg-[#FFF0C8]`
+
+      case `Redux`:
+        return `bg-[#D5BAFF]`;
+
+      case `Tailwind CSS`:
+        return `bg-[#C9F7FF]`;
+
+      default:
+        return `bg-white`;
+    }
+  }
+
   return (
     <Link
       href={folderLinkHref}
-      className="flex flex-col justify-center items-center space-y-2 m-5 hover:cursor-pointer"
+      className="flex flex-col justify-center items-center space-y-2 m-5 hover:cursor-pointer hover:scale-105"
       onClick={onClick}
     >
       <div
+        
         className={`w-32 h-32 flex flex-col justify-center items-center bg-black border-2 border-black rounded-sm pointer-events-none`}
       >
         <div
-          className={`w-32 h-32 bg-white flex flex-col justify-center items-center border-4 border-black -ml-5 -mt-5 rounded-sm`}
+          className={`w-32 h-32 ${getFolderIconBgColor()} flex flex-col justify-center items-center border-4 border-black -ml-5 -mt-5 rounded-sm`}
         >
           <Image
             src={folderIcon}

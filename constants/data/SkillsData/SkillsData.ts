@@ -1,32 +1,32 @@
 import { ISkillData } from "@/types/SkillData";
 
 export const SkillsData: ISkillData[] = [
-  { skillName: "HTML", skillIcon: `html.png`, skillBgColor: `#FFAD8A` },
-  { skillName: "CSS", skillIcon: `css.png`, skillBgColor: `#65D0FF` },
+  { skillName: "HTML", skillIcon: `html.png`, skillBgColor: "#FFBCAB" },
+  { skillName: "CSS", skillIcon: `css.png`, skillBgColor: "#AFE2FF" },
   {
     skillName: "JavaScript",
     skillIcon: `javascript.png`,
-    skillBgColor: `#FFEEA8`,
+    skillBgColor: `#FEF6B3`,
   },
   {
     skillName: "TypeScript",
     skillIcon: `typescript.jpg`,
-    skillBgColor: `#FFFFFF`,
+    skillBgColor: `#AFDFFF`,
   },
-  { skillName: "React JS", skillIcon: `reactjs.png`, skillBgColor: `#DDFAFF` },
+  { skillName: "React JS", skillIcon: `reactjs.png`, skillBgColor: `#D4F9FF` },
   { skillName: "Next JS", skillIcon: `nextjs.png`, skillBgColor: `#E8E8E8` },
-  { skillName: "Node JS", skillIcon: `nodejs.png`, skillBgColor: `#FFEEA8` },
+  { skillName: "Node JS", skillIcon: `nodejs.png`, skillBgColor: `#E4FFA4` },
   {
     skillName: "Express JS",
     skillIcon: `expressjs.png`,
-    skillBgColor: `#FFEEA8`,
+    skillBgColor: `#B3B3B3`,
   },
-  { skillName: "MongoDB", skillIcon: `mongodb.png`, skillBgColor: `#FFEEA8` },
-  { skillName: "Firebase", skillIcon: `firebase.png`, skillBgColor: `#FFEEA8` },
-  { skillName: "Redux", skillIcon: `redux.png`, skillBgColor: `#FFEEA8` },
+  { skillName: "MongoDB", skillIcon: `mongodb.png`, skillBgColor: `#C8FFB0` },
+  { skillName: "Firebase", skillIcon: `firebase.png`, skillBgColor: `#FFF0C8` },
+  { skillName: "Redux", skillIcon: `redux.png`, skillBgColor: `#D5BAFF` },
   {
     skillName: "Tailwind CSS",
     skillIcon: `tailwindcss.png`,
-    skillBgColor: `#FFEEA8`,
+    skillBgColor: `#84DFEE`,
   },
 ];
