@@ -30,4 +30,4 @@ const ProjectCard = ( {project}: {project: IProject} ) => {
   )
 }
 
-export default ProjectCard
+export default React.memo(ProjectCard)

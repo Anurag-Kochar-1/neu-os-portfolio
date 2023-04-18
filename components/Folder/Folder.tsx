@@ -40,6 +40,8 @@ const Folder = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const folderRef = useRef<HTMLDivElement | null>(null);
 
+  const availableFolders = ['Skills', 'Projects'] 
+
   const getFolderBgColor = () => {
     switch (folderName) {
       case "Skills":
@@ -115,11 +117,11 @@ const Folder = () => {
           {folderName === "Skills" && <SkillsFolderContent />}
           {folderName === "Projects" && <ProjectsFolderContent />}
 
-          {/* {folderName !== "Skills" && (
+          {!availableFolders?.includes(folderName) && (
             <p className="w-full text-center my-10 text-5xl font-semibold">
               This Folder is under construction
             </p>
-          )} */}
+          )}
         </div>
       </Draggable>
     </div>

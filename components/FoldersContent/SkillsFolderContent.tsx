@@ -20,4 +20,4 @@ const SkillsFolderContent = () => {
   );
 };
 
-export default SkillsFolderContent;
+export default React.memo(SkillsFolderContent);

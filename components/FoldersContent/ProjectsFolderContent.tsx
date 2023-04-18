@@ -13,4 +13,4 @@ const ProjectsFolderContent = () => {
   )
 }
 
-export default ProjectsFolderContent
+export default React.memo(ProjectsFolderContent)
