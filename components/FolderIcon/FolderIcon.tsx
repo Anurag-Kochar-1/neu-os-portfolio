@@ -95,4 +95,4 @@ const FolderIcon = ({
   );
 };
 
-export default FolderIcon;
+export default React.memo(FolderIcon);

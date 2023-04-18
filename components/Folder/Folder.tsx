@@ -6,7 +6,6 @@ import React, {
   MouseEvent,
   useEffect,
   useState,
-
 } from "react";
 import { AppContext, IAppContextType } from "@/context/AppContext";
 import Draggable from "react-draggable";
@@ -21,6 +20,11 @@ import FolderHeaderButton from "../FolderHeaderButton/FolderHeaderButton";
 import { IoClose } from "react-icons/io5";
 import { FiMaximize2, FiMinimize2 } from "react-icons/fi";
 import { FaMinus } from "react-icons/fa";
+import { ProjectsData } from "@/constants/data/ProjectsData/ProjectsData";
+import { IProject } from "@/types/ProjectData";
+import Image from "next/image";
+import SkillsFolderContent from "../FoldersContent/SkillsFolderContent";
+import ProjectsFolderContent from "../FoldersContent/ProjectsFolderContent";
 
 const Folder = () => {
   // const { isFolderOpen, setIsFolderOpen } = useContext<IAppContextType>(AppContext)
@@ -41,7 +45,7 @@ const Folder = () => {
       case "Skills":
         return `bg-[#644BDF]`;
       case "Projects":
-        return `bg-[#E05151]`
+        return `bg-[#E05151]`;
       default:
         return `bg-white`;
     }
@@ -67,8 +71,10 @@ const Folder = () => {
       <Draggable handle=".headerHandle" bounds="parent">
         <div
           className={`${
-            isFolderMaximized ? "w-[100%] h-[100vh]" : "w-[90%] h-[90vh] md:w-[70%] md:h-[70vh]"
-          } relative ${getFolderBgColor()} border-4 border-black rounded-md overflow-x-hidden overflow-y-auto `}
+            isFolderMaximized
+              ? "w-[100%] h-[100vh]"
+              : "w-[90%] h-[90vh] md:w-[70%] md:h-[70vh]"
+          } relative ${getFolderBgColor()} border-4 border-black rounded-sm overflow-x-hidden overflow-y-auto `}
           ref={folderRef}
         >
           {/* HEADER */}
@@ -106,27 +112,14 @@ const Folder = () => {
             </div>
           </div>
 
-          {/* ----- SKILLS ----- */}
-          <div className="w-full flex justify-center md:justify-start items-center flex-wrap py-10">
-            {folderName === "Skills" &&
-              SkillsData?.map((skill) => {
-                return (
-                  <FolderIcon
-                    key={skill.skillName}
-                    folderName={skill.skillName}
-                    folderIcon={`/images/skillIcons/${skill.skillIcon}`}
-                    folderLinkHref={`/?folder=Skills`}
-                    bgColor={`${skill?.skillBgColor}`}
-                  />
-                );
-              })}
+          {folderName === "Skills" && <SkillsFolderContent />}
+          {folderName === "Projects" && <ProjectsFolderContent />}
 
-            {folderName !== "Skills" && (
-              <p className="w-full text-center my-10 text-5xl font-semibold">
-                This Folder is under construction
-              </p>
-            )}
-          </div>
+          {/* {folderName !== "Skills" && (
+            <p className="w-full text-center my-10 text-5xl font-semibold">
+              This Folder is under construction
+            </p>
+          )} */}
         </div>
       </Draggable>
     </div>
