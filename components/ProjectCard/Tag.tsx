@@ -42,6 +42,9 @@ const Tag = (  {text,}: IProps ) => {
     
           case `Tailwind CSS`:
             return `bg-[#00B9D8] text-white`;
+
+          case `Sanity CMS`:
+            return `bg-[#F03E2F] text-white`
     
           default:
             return `bg-white text-black`;

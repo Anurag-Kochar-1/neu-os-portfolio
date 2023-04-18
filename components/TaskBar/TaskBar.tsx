@@ -72,4 +72,4 @@ const TaskBar = () => {
   );
 };
 
-export default TaskBar;
+export default React.memo(TaskBar);

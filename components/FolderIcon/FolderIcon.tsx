@@ -88,8 +88,7 @@ const FolderIcon = ({
         </div>
       </div>
       <h3 className="mt-10 text-black text-xl font-bold hover:cursor-pointer">
-        {" "}
-        {folderName}{" "}
+        {folderName}
       </h3>
     </Link>
   );

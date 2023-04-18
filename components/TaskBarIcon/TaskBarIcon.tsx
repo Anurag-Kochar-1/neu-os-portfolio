@@ -43,4 +43,4 @@ const TaskBarIcon = ({ icon }: IProps) => {
     )
 }
 
-export default TaskBarIcon
+export default React.memo(TaskBarIcon)

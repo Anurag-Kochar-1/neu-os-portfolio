@@ -76,7 +76,7 @@ const Folder = () => {
             isFolderMaximized
               ? "w-[100%] h-[100vh]"
               : "w-[90%] h-[90vh] md:w-[70%] md:h-[70vh]"
-          } relative ${getFolderBgColor()} border-4 border-black rounded-sm overflow-x-hidden overflow-y-auto `}
+          } relative ${getFolderBgColor()} border-4 border-black rounded-sm overflow-x-hidden overflow-y-auto scrollbar-hide`}
           ref={folderRef}
         >
           {/* HEADER */}
