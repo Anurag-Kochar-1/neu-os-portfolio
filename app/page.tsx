@@ -12,6 +12,7 @@ import AppContextProvider from "@/context/AppContext";
 const inter = Inter({ subsets: ["latin"] });
 
 import { useRouter } from "next/navigation";
+import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
 
 export default function Home() {
   const router = useRouter();
@@ -28,7 +29,8 @@ export default function Home() {
           <div className="bg-white w-full h-full relative grid grid-cols-12 auto-rows-min ">
             <div className=" absolute left-0 bottom-0 top-0 bg-blue-500 w-full h-[50vh] xl:h-full xl:w-full xl:col-start-1 xl:col-end-4"></div>
             <AboutCard />
-            <FoldersContainer />
+            {/* <FoldersContainer /> */}
+            <MusicPlayer />
           </div>
         </div>
 
