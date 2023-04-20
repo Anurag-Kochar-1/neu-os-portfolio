@@ -119,7 +119,7 @@ const Folder = () => {
 
           {!availableFolders?.includes(folderName) && (
             <p className="w-full text-center my-10 text-5xl font-semibold">
-              This Folder is under construction
+              This Folder is under construction : {")"}
             </p>
           )}
         </div>
