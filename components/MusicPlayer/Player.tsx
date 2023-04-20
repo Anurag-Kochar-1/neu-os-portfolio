@@ -68,8 +68,8 @@ const Player = ({
   }
 
   return (
-    <div className="w-96 h-36 flex flex-col items-center justify-center bg-black border-2 border-black">
-      <div className="w-full h-full -mt-2 -ml-2 flex flex-col items-center justify-start bg-[#D9D9D9] border-2 border-black">
+    <div className="w-72 sm:w-96 h-36 flex flex-col items-center justify-center bg-black border-2 border-black">
+      <div className="w-full h-full -mt-3 -ml-3 flex flex-col items-center justify-start bg-[#D9D9D9] border-2 border-black">
         {/* ----- HEADER  -----*/}
         <span className="w-full h-10 bg-black flex justify-between items-center px-2">
           {/* DOTS */}
@@ -84,9 +84,9 @@ const Player = ({
         </span>
 
         {/* ----- CONTAINER  -----*/}
-        <div className="w-full h-full flex justify-start items-center">
+        <div className="w-full h-full flex  justify-start pl-5 sm:pl-0 items-center">
           {/*  THUMBNAIL */}
-          <div className="flex justify-center items-center px-2 py-1">
+          <div className="hidden sm:inline-flex justify-center items-center px-2 py-1">
             <Image
               src={currentSong?.thumbnail}
               alt={"Thumbnail"}
