@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { ISong } from "@/constants/data/SongsData/SongsData";
 import { VscPlay } from "react-icons/vsc";
 import { AiOutlinePause } from "react-icons/ai";
@@ -24,9 +24,46 @@ const Player = ({
   audioRef,
 }: IProps) => {
   // console.log(`Player is RENDERING`)
+  const progressBarContainerRef = useRef<HTMLDivElement | null>(null)
+
   const playPause = () => {
     setIsSongPlaying(!isSongPlaying);
   };
+
+  const checkWidth = (e: any) => {
+    if(progressBarContainerRef.current) {
+        let width = progressBarContainerRef.current?.clientWidth
+        const offset = e.nativeEvent.offsetX;
+
+        const divProgress= offset / width * 100;
+        if(audioRef.current) {
+            audioRef.current.currentTime = divProgress / 100 * currentSong.length
+        }
+    }
+  }
+
+  const previousSong = () => {
+    const index = songs.findIndex(x=>x.id == currentSong.id);
+    if(index === 0) {
+        setCurrentSong(songs[songs.length - 1])
+    } else {
+        setCurrentSong(songs[index - 1])
+    }
+    audioRef.current.currentTime = 0;
+  }
+
+  const nextSong = () => {
+    const index = songs.findIndex(x=>x.id == currentSong.id);
+    if (index == songs.length-1)
+    {
+      setCurrentSong(songs[0])
+    }
+    else
+    {
+      setCurrentSong(songs[index + 1])
+    }
+    audioRef.current.currentTime = 0;
+  }
 
   return (
     <div className="w-80 h-40 flex flex-col items-center justify-center bg-black border-2 border-black">
@@ -44,7 +81,7 @@ const Player = ({
             <h6> {currentSong?.title} </h6>
             <h6> {currentSong?.songBy} </h6>
             {/* BAR */}
-            <div className="w-full h-4 bg-black flex justify-star items-center">
+            <div ref={progressBarContainerRef} onClick={checkWidth} className="w-full h-4 bg-black flex justify-star items-center">
               <div
                 style={{ width: `${currentSong.progress + "%"}` }}
                 className={`h-full bg-[#7FFF5B]`}
@@ -53,14 +90,14 @@ const Player = ({
 
             {/* CONTROLS */}
             <div className="flex justify-center items-center space-x-2">
-              <RxTrackPrevious size={"1.4rem"} />
+              <RxTrackPrevious size={"1.4rem"} onClick={previousSong} />
               {!isSongPlaying && (
                 <VscPlay size={"1.4rem"} onClick={playPause} />
               )}
               {isSongPlaying && (
                 <AiOutlinePause size={"1.4rem"} onClick={playPause} />
               )}
-              <RxTrackNext size={"1.4rem"} />
+              <RxTrackNext size={"1.4rem"} onClick={nextSong} />
             </div>
           </div>
         </div>

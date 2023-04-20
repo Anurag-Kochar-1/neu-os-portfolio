@@ -22,12 +22,13 @@ const MusicPlayer = () => {
   useEffect(() => {
     if(isSongPlaying) {
         if(audioRef.current) {
+            audioRef.current.volume = 0.03;
             audioRef?.current.play()
         }
     } else {
         audioRef.current?.pause()
     }
-  },[isSongPlaying])
+  },[isSongPlaying, currentSong])
 
   return (
     <div className="my-10">
