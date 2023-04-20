@@ -1,4 +1,4 @@
-import React, { use, useEffect, useRef, useState } from "react";
+import React, {useEffect, useRef, useState } from "react";
 import { ISong, SONGS_DATA } from "../../constants/data/SongsData/SongsData";
 import Player from "./Player";
 

@@ -3,6 +3,7 @@ import { ISong } from "@/constants/data/SongsData/SongsData";
 import { VscPlay } from "react-icons/vsc";
 import { AiOutlinePause } from "react-icons/ai";
 import { RxTrackPrevious, RxTrackNext } from "react-icons/rx";
+import Image from "next/image";
 
 interface IProps {
   songs: ISong[];
@@ -66,7 +67,7 @@ const Player = ({
   }
 
   return (
-    <div className="w-80 h-40 flex flex-col items-center justify-center bg-black border-2 border-black">
+    <div className="w-96 h-40 flex flex-col items-center justify-center bg-black border-2 border-black">
       <div className="w-full h-full -mt-2 -ml-2 flex flex-col items-center justify-start bg-[#D9D9D9] border-2 border-black">
         {/* ----- HEADER  -----*/}
         <span className="w-full h-10 bg-black flex justify-between items-center"></span>
@@ -74,7 +75,15 @@ const Player = ({
         {/* ----- CONTAINER  -----*/}
         <div className="w-full flex justify-start items-center">
           {/*  THUMBNAIL */}
-          <div></div>
+          <div className="flex justify-center items-center px-2 py-1">
+            <Image
+              src={currentSong?.thumbnail}
+              alt={"Thumbnail"}
+              width={200}
+              height={200}
+              className={`w-20 h-20 rounded-full object-contain   ${isSongPlaying &&  "animate-spin"}`}
+            />
+          </div>
 
           {/*  SUB CONTAINER */}
           <div className="w-full flex flex-col justify-start items-start">

@@ -14,13 +14,13 @@ export const SONGS_DATA:ISong[] = [
         title: "Hotel California",
         songBy: "Eagles",
         audioSrc: `/songs/hotel-california/hotel-california-audio.mp3`,
-        thumbnail: ""
+        thumbnail: "/images/songs/hotel-california/thumbnail.png"
     },
     {
         id: 1,
-        title: "Hotel California",
+        title: "Scopin",
         songBy: "Kordhell",
         audioSrc: `/songs/scopin/scopin-audio.mp3`,
-        thumbnail: ""
+        thumbnail: "/images/songs/scopin/thumbnail.png"
     }
 ]
