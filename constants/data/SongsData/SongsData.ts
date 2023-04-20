@@ -4,6 +4,8 @@ export interface ISong {
     songBy: string
     audioSrc: string
     thumbnail: string
+    progress?: any
+    length?: any
 }
 
 export const SONGS_DATA:ISong[] = [
@@ -11,14 +13,14 @@ export const SONGS_DATA:ISong[] = [
         id: 0,
         title: "Hotel California",
         songBy: "Eagles",
-        audioSrc: 'songs/hotel-california/hotel-califorina-audio',
+        audioSrc: `/songs/hotel-california/hotel-california-audio.mp3`,
         thumbnail: ""
     },
     {
         id: 1,
         title: "Hotel California",
         songBy: "Kordhell",
-        audioSrc: 'songs/scopin/scopin-audio',
+        audioSrc: `/songs/scopin/scopin-audio.mp3`,
         thumbnail: ""
     }
 ]
