@@ -3,6 +3,7 @@ import { ISong } from "@/constants/data/SongsData/SongsData";
 import { VscPlay } from "react-icons/vsc";
 import { AiOutlinePause } from "react-icons/ai";
 import { RxTrackPrevious, RxTrackNext } from "react-icons/rx";
+import {MdOutlinePlayArrow} from 'react-icons/md'
 import Image from "next/image";
 
 interface IProps {
@@ -32,7 +33,7 @@ const Player = ({
   };
 
   const checkWidth = (e: any) => {
-    if(progressBarContainerRef.current) {
+    if(progressBarContainerRef.current && isSongPlaying) {
         let width = progressBarContainerRef.current?.clientWidth
         const offset = e.nativeEvent.offsetX;
 
@@ -67,13 +68,23 @@ const Player = ({
   }
 
   return (
-    <div className="w-96 h-40 flex flex-col items-center justify-center bg-black border-2 border-black">
+    <div className="w-96 h-36 flex flex-col items-center justify-center bg-black border-2 border-black">
       <div className="w-full h-full -mt-2 -ml-2 flex flex-col items-center justify-start bg-[#D9D9D9] border-2 border-black">
         {/* ----- HEADER  -----*/}
-        <span className="w-full h-10 bg-black flex justify-between items-center"></span>
+        <span className="w-full h-10 bg-black flex justify-between items-center px-2">
+          {/* DOTS */}
+          <div className='flex justify-center items-center space-x-2'>
+            <span className='w-3 h-3 rounded-full bg-[#269B4E] hover:cursor-pointer'></span>
+            <span className='w-3 h-3 rounded-full bg-[#E9493D] hover:cursor-pointer'></span>
+            <span className='w-3 h-3 rounded-full bg-[#FFF052] hover:cursor-pointer'></span>
+          </div>
+
+          <span className="text-white font-semibold text-sm"> SONGS I HEAR ALL THE TIME </span>
+          <MdOutlinePlayArrow className="text-white text-2xl" />
+        </span>
 
         {/* ----- CONTAINER  -----*/}
-        <div className="w-full flex justify-start items-center">
+        <div className="w-full h-full flex justify-start items-center">
           {/*  THUMBNAIL */}
           <div className="flex justify-center items-center px-2 py-1">
             <Image
@@ -87,10 +98,11 @@ const Player = ({
 
           {/*  SUB CONTAINER */}
           <div className="w-full flex flex-col justify-start items-start">
-            <h6> {currentSong?.title} </h6>
-            <h6> {currentSong?.songBy} </h6>
+            <h5 className="font-medium text-black text-base"> {currentSong?.title} </h5>
+            <h6 className="font-normal text-black text-sm"> {currentSong?.songBy} </h6>
+
             {/* BAR */}
-            <div ref={progressBarContainerRef} onClick={checkWidth} className="w-full h-4 bg-black flex justify-star items-center">
+            <div ref={progressBarContainerRef} onClick={checkWidth} className="w-[95%] h-3 bg-black flex justify-star items-center my-1 hover:cursor-pointer">
               <div
                 style={{ width: `${currentSong.progress + "%"}` }}
                 className={`h-full bg-[#7FFF5B]`}
@@ -101,12 +113,12 @@ const Player = ({
             <div className="flex justify-center items-center space-x-2">
               <RxTrackPrevious size={"1.4rem"} onClick={previousSong} />
               {!isSongPlaying && (
-                <VscPlay size={"1.4rem"} onClick={playPause} />
+                <VscPlay size={"1.4rem"} onClick={playPause} className="hover:cursor-pointer"/>
               )}
               {isSongPlaying && (
-                <AiOutlinePause size={"1.4rem"} onClick={playPause} />
+                <AiOutlinePause size={"1.4rem"} onClick={playPause} className="hover:cursor-pointer"/>
               )}
-              <RxTrackNext size={"1.4rem"} onClick={nextSong} />
+              <RxTrackNext size={"1.4rem"} onClick={nextSong} className="hover:cursor-pointer"/>
             </div>
           </div>
         </div>
