@@ -76,12 +76,11 @@ const Folder = () => {
           ref={folderRef}
         >
           {/* HEADER */}
-          <div onClick={() => {
-            
-          }} className="headerHandle sticky top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex items-center px-5 hover:cursor-move">
+          <div className="headerHandle sticky top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex items-center px-5 hover:cursor-move">
             {/* <span>.</span> */}
             <h2 className="font-semibold w-full text-center text-xl text-white pointer-events-none">
-              {folderName} 
+              {!subFolderName && folderName} 
+              {subFolderName && subFolderName} 
             </h2>
             {/* Folder Buttons */}
             <div className="flex items-center ml-auto space-x-3">
