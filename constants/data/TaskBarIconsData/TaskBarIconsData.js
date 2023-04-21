@@ -13,6 +13,7 @@ export const TaskBarIconsDataArray = [
     bgColor: "bg-[#FFFFFF]",
     iconColor: "text-black",
     isVisibleOnMobile: true,
+    link: null
   },
   {
     id: 1,
@@ -21,6 +22,7 @@ export const TaskBarIconsDataArray = [
     bgColor: "bg-[#FFFFFF]",
     iconColor: "text-black",
     isVisibleOnMobile: false,
+    link: null
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ export const TaskBarIconsDataArray = [
     bgColor: "bg-[#FEF400]",
     iconColor: "text-black",
     isVisibleOnMobile: true,
+    link: null
   },
   {
     id: 3,
@@ -37,6 +40,7 @@ export const TaskBarIconsDataArray = [
     bgColor: "bg-[#FFFFFF]",
     iconColor: "text-black",
     isVisibleOnMobile: true,
+    link: null
   },
   {
     id: 4,
@@ -45,6 +49,7 @@ export const TaskBarIconsDataArray = [
     bgColor: "bg-[#DB7CFD]",
     iconColor: "text-black",
     isVisibleOnMobile: true,
+    link: null
   },
   {
     id: 5,
@@ -53,6 +58,7 @@ export const TaskBarIconsDataArray = [
     bgColor: "bg-[#DB3073]",
     iconColor: "text-black",
     isVisibleOnMobile: false,
+    link: `https://www.instagram.com/anurag__kochar/`
   },
   {
     id: 6,
@@ -61,6 +67,7 @@ export const TaskBarIconsDataArray = [
     bgColor: "bg-[#1DA1F2]",
     iconColor: "text-black",
     isVisibleOnMobile: false,
+    link: `https://twitter.com/anurag__kochar`
   },
   {
     id: 7,
@@ -69,6 +76,7 @@ export const TaskBarIconsDataArray = [
     bgColor: "bg-[#FE0002]",
     iconColor: "text-black",
     isVisibleOnMobile: false,
+    link: `https://www.youtube.com/@TheAnuragKocharShow69/videos`
   },
   {
     id: 8,
@@ -77,5 +85,6 @@ export const TaskBarIconsDataArray = [
     bgColor: "bg-[#007BB6]",
     iconColor: "text-black",
     isVisibleOnMobile: true,
+    link: `https://www.linkedin.com/in/anurag-kochar-527696242/`
   },
 ];

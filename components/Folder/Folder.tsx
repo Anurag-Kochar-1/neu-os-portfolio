@@ -22,6 +22,7 @@ import { FaMinus } from "react-icons/fa";
 import SkillsFolderContent from "../FoldersContent/SkillsFolderContent";
 import ProjectsFolderContent from "../FoldersContent/ProjectsFolderContent";
 import ProjectContent from "../FoldersContent/ProjectContent";
+import FolderHeader from "./FolderHeader";
 
 const Folder = () => {
   const router = useRouter();
@@ -29,8 +30,8 @@ const Folder = () => {
   const folderName = searchParams.get("folder");
   const subFolderName = searchParams.get("subFolder");
 
-  // ----- STATES ----
-  const [isFolderMaximized, setIsFolderMaximized] = useState<boolean>(false);
+   // ----- STATES ----
+   const [isFolderMaximized, setIsFolderMaximized] = useState<boolean>(false);
 
   // ---- REFS ----
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -75,44 +76,8 @@ const Folder = () => {
           } relative ${getFolderBgColor()} border-4 border-black rounded-sm overflow-x-hidden overflow-y-auto scrollbar-hide`}
           ref={folderRef}
         >
-          {/* HEADER */}
-          <div onClick={() => {
-            
-          }} className="headerHandle sticky top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex items-center px-5 hover:cursor-move">
-            {/* <span>.</span> */}
-            <h2 className="font-semibold w-full text-center text-xl text-white pointer-events-none">
-              {folderName} 
-            </h2>
-            {/* Folder Buttons */}
-            <div className="flex items-center ml-auto space-x-3">
-              <FolderHeaderButton
-                buttonColor={`bg-[#FFB443]`}
-                buttonName="close"
-                buttonIcon={<FaMinus size={"1.3rem"} />}
-                onClick={() => router.push(`/`)}
-              />
-              <FolderHeaderButton
-                buttonColor={`bg-[#00FE74]`}
-                buttonName="close"
-                buttonIcon={
-                  isFolderMaximized ? (
-                    <FiMinimize2 size={"1.3rem"} />
-                  ) : (
-                    <FiMaximize2 size={"1.3rem"} />
-                  )
-                }
-                onClick={() => setIsFolderMaximized(!isFolderMaximized)}
-              />
-              <FolderHeaderButton
-                buttonColor={`bg-[#FF5E5E]`}
-                buttonName="close"
-                buttonIcon={<IoClose size={"1.3rem"} />}
-                onClick={() => {
-                  router.push(`/`)
-                }}
-              />
-            </div>
-          </div>
+          {/* ------ HEADER ------ */}
+          <FolderHeader isFolderMaximized={isFolderMaximized} setIsFolderMaximized={setIsFolderMaximized} />
 
           {folderName === "Skills" && !subFolderName ? <SkillsFolderContent /> : null}
           {folderName === "Projects" && !subFolderName ? <ProjectsFolderContent /> : null}
