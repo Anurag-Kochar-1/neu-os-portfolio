@@ -1,12 +1,12 @@
 export interface ISong {
-    id: number
-    title: string
-    songBy: string
-    audioSrc: string
-    thumbnail: string
-    progress?: any
-    length?: any
-}
+    id?: number;
+    title?: string;
+    songBy?: string;
+    audioSrc?: string;
+    thumbnail?: string;
+    progress?: number;
+    length?: number;
+  }
 
 export const SONGS_DATA:ISong[] = [
     {

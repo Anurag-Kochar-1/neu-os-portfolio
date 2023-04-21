@@ -11,7 +11,7 @@ interface IProps {
   setSongs: React.Dispatch<React.SetStateAction<ISong[]>>;
   isSongPlaying: boolean;
   setIsSongPlaying: React.Dispatch<React.SetStateAction<boolean>>;
-  currentSong: ISong;
+  currentSong: ISong | null;
   setCurrentSong: React.Dispatch<React.SetStateAction<ISong>>;
   audioRef: any;
 }
@@ -39,13 +39,15 @@ const Player = ({
 
         const divProgress= offset / width * 100;
         if(audioRef.current) {
-            audioRef.current.currentTime = divProgress / 100 * currentSong.length
+            if(currentSong?.length) {
+              audioRef.current.currentTime = divProgress / 100 * currentSong?.length
+            }
         }
     }
   }
 
   const previousSong = () => {
-    const index = songs.findIndex(x=>x.id == currentSong.id);
+    const index = songs.findIndex(x=>x.id == currentSong?.id);
     if(index === 0) {
         setCurrentSong(songs[songs.length - 1])
     } else {
@@ -55,7 +57,7 @@ const Player = ({
   }
 
   const nextSong = () => {
-    const index = songs.findIndex(x=>x.id == currentSong.id);
+    const index = songs.findIndex(x=>x.id == currentSong?.id);
     if (index == songs.length-1)
     {
       setCurrentSong(songs[0])
@@ -88,7 +90,7 @@ const Player = ({
           {/*  THUMBNAIL */}
           <div className="hidden sm:inline-flex justify-center items-center px-2 py-1">
             <Image
-              src={currentSong?.thumbnail}
+              src={currentSong?.thumbnail as string}
               alt={"Thumbnail"}
               width={200}
               height={200}
@@ -104,7 +106,7 @@ const Player = ({
             {/* BAR */}
             <div ref={progressBarContainerRef} onClick={checkWidth} className="w-[95%] h-3 bg-black flex justify-star items-center my-1 hover:cursor-pointer">
               <div
-                style={{ width: `${currentSong.progress + "%"}` }}
+                style={{ width: `${currentSong?.progress + "%"}` }}
                 className={`h-full bg-[#7FFF5B]`}
               ></div>
             </div>

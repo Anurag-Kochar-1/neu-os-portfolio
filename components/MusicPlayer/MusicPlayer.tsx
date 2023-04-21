@@ -1,15 +1,18 @@
-import React, {useEffect, useRef, useState } from "react";
+import { AppContext } from "@/context/AppContext";
+import React, {useContext, useEffect, useRef, useState } from "react";
 import { ISong, SONGS_DATA } from "../../constants/data/SongsData/SongsData";
 import Player from "./Player";
 
 const MusicPlayer = () => {
-  // ---- STATES ----
-  const [songs, setSongs] = useState<ISong[]>(SONGS_DATA);
-  const [currentSong, setCurrentSong] = useState<ISong>(SONGS_DATA[0]);
-  const [isSongPlaying, setIsSongPlaying] = useState<boolean>(false);
+  const {songs, setSongs,currentSong, setCurrentSong, isSongPlaying, setIsSongPlaying, audioRef } = useContext(AppContext)
 
-  // ---- REFS ----
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  // ---- STATES ----
+  // const [songs, setSongs] = useState<ISong[]>(SONGS_DATA);
+  // const [currentSong, setCurrentSong] = useState<ISong>(SONGS_DATA[0]);
+  // const [isSongPlaying, setIsSongPlaying] = useState<boolean>(false);
+
+  // // ---- REFS ----
+  // const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const onPlaying = () => {
     if(audioRef.current) {
