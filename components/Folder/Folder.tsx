@@ -19,14 +19,11 @@ import FolderHeaderButton from "../FolderHeaderButton/FolderHeaderButton";
 import { IoClose } from "react-icons/io5";
 import { FiMaximize2, FiMinimize2 } from "react-icons/fi";
 import { FaMinus } from "react-icons/fa";
-import { ProjectsData } from "@/constants/data/ProjectsData/ProjectsData";
-import { IProject } from "@/types/ProjectData";
-import Image from "next/image";
 import SkillsFolderContent from "../FoldersContent/SkillsFolderContent";
 import ProjectsFolderContent from "../FoldersContent/ProjectsFolderContent";
+import ProjectContent from "../FoldersContent/ProjectContent";
 
 const Folder = () => {
-  // const { isFolderOpen, setIsFolderOpen } = useContext<IAppContextType>(AppContext)
   const router = useRouter();
   const searchParams = useSearchParams();
   const folderName = searchParams.get("folder");
@@ -65,7 +62,7 @@ const Folder = () => {
 
   return (
     <div
-      className="z-30 fixed inset-0 w-full h-screen bg-black/[.50] flex justify-center items-center"
+      className="z-50 fixed inset-0 w-full h-screen bg-black/[.50] flex justify-center items-center"
       ref={containerRef}
       onClick={(e) => handleOverlayClick(e)}
     >
@@ -79,7 +76,9 @@ const Folder = () => {
           ref={folderRef}
         >
           {/* HEADER */}
-          <div className="headerHandle sticky top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex items-center px-5 hover:cursor-move">
+          <div onClick={() => {
+            
+          }} className="headerHandle sticky top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex items-center px-5 hover:cursor-move">
             {/* <span>.</span> */}
             <h2 className="font-semibold w-full text-center text-xl text-white pointer-events-none">
               {folderName} 
@@ -108,13 +107,18 @@ const Folder = () => {
                 buttonColor={`bg-[#FF5E5E]`}
                 buttonName="close"
                 buttonIcon={<IoClose size={"1.3rem"} />}
-                onClick={() => router.push(`/`)}
+                onClick={() => {
+                  router.push(`/`)
+                }}
               />
             </div>
           </div>
 
-          {folderName === "Skills" && <SkillsFolderContent />}
-          {folderName === "Projects" && <ProjectsFolderContent />}
+          {folderName === "Skills" && !subFolderName ? <SkillsFolderContent /> : null}
+          {folderName === "Projects" && !subFolderName ? <ProjectsFolderContent /> : null}
+          {subFolderName ? <ProjectContent /> : null}
+
+                  
 
           {!availableFolders?.includes(folderName) && (
             <p className="w-full text-center my-10 text-5xl font-semibold">

@@ -1,12 +1,13 @@
 import { IProject } from '@/types/ProjectData'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import Tag from './Tag'
 
 const ProjectCard = ( {project}: {project: IProject} ) => {
 
   return (
-    <div className='w-60 md:w-72 lg:w-80 aspect-video flex flex-col justify-center items-center bg-black border-2 border-black rounded-lg m-5 hover:cursor-pointer '>
+    <Link href={`/?folder=Projects&subFolder=${project.projectName}`} className='w-60 md:w-72 lg:w-80 aspect-video flex flex-col justify-center items-center bg-black border-2 border-black rounded-lg m-5 hover:cursor-pointer '>
         <div className='w-60 md:w-72 lg:w-80 aspect-video -mt-4 -ml-4 bg-white border-4 border-black rounded-lg pointer-events-none'>
             <Image 
                 src={project?.thumbnail}
@@ -26,7 +27,7 @@ const ProjectCard = ( {project}: {project: IProject} ) => {
             </div>
 
         </div>
-    </div>
+    </Link>
   )
 }
 

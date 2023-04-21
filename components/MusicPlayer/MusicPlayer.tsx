@@ -28,7 +28,7 @@ const MusicPlayer = () => {
 
   if(!isMusicPlayerVisible) return null;
   return (
-    <Draggable handle={`.MusicPlayerHeaderHandle`} bounds="parent">
+    <Draggable handle={`.MusicPlayerHeaderHandle`} bounds="parent" >
       <div className="z-50 col-start-2 col-end-12 xl:col-start-7 xl:col-end-11 2xl:col-start-7 2xl:col-end-10 xl:fixed xl:bottom-[20vh] xl:right-10 pb-96 pt-10 xl:pt-0 xl:pb-0">
         <audio src={currentSong?.audioSrc} ref={audioRef} onTimeUpdate={onPlaying} />
 
