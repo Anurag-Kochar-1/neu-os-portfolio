@@ -7,7 +7,6 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import { AppContext, IAppContextType } from "@/context/AppContext";
 import Draggable from "react-draggable";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";

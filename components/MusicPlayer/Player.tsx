@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { ISong } from "@/constants/data/SongsData/SongsData";
 import { VscPlay } from "react-icons/vsc";
 import { AiOutlinePause } from "react-icons/ai";
@@ -14,6 +14,7 @@ interface IProps {
   currentSong: ISong | null;
   setCurrentSong: React.Dispatch<React.SetStateAction<ISong>>;
   audioRef: any;
+  MusicPlayerHeaderHandle: string
 }
 
 const Player = ({
@@ -24,9 +25,11 @@ const Player = ({
   currentSong,
   setCurrentSong,
   audioRef,
+  MusicPlayerHeaderHandle
 }: IProps) => {
   // console.log(`Player is RENDERING`)
   const progressBarContainerRef = useRef<HTMLDivElement | null>(null)
+  const headerRef = useRef <HTMLDivElement | null> (null)
 
   const playPause = () => {
     setIsSongPlaying(!isSongPlaying);
@@ -69,11 +72,17 @@ const Player = ({
     audioRef.current.currentTime = 0;
   }
 
+  useEffect(() => {
+    if(headerRef.current) {
+      headerRef.current.classList.add('MusicPlayerHeaderHandle');
+    }
+  },[])
+
   return (
     <div className="w-72 sm:w-96 h-36 flex flex-col items-center justify-center bg-black border-2 border-black">
       <div className="w-full h-full -mt-3 -ml-3 flex flex-col items-center justify-start bg-[#D9D9D9] border-2 border-black">
         {/* ----- HEADER  -----*/}
-        <span className="w-full h-10 bg-black flex justify-between items-center px-2">
+        <div ref={headerRef} className={`w-full h-10 bg-black flex justify-between items-center px-2`}>
           {/* DOTS */}
           <div className='flex justify-center items-center space-x-2'>
             <span className='w-3 h-3 rounded-full bg-[#269B4E] hover:cursor-pointer'></span>
@@ -83,7 +92,7 @@ const Player = ({
 
           <span className="text-white font-semibold text-sm"> SONGS I HEAR ALL THE TIME </span>
           <MdOutlinePlayArrow className="text-white text-2xl" />
-        </span>
+        </div>
 
         {/* ----- CONTAINER  -----*/}
         <div className="w-full h-full flex  justify-start pl-5 sm:pl-0 items-center">
