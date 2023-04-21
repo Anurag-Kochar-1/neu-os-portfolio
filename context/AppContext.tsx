@@ -1,35 +1,58 @@
-"use client"
+"use client";
 
-import React, { useState, ReactNode, createContext } from 'react'
-
+import { ISong, SONGS_DATA } from "@/constants/data/SongsData/SongsData";
+import React, { useState, ReactNode, createContext, useRef } from "react";
 
 export interface IAppContextType {
-    isFolderOpen: boolean
-    setIsFolderOpen: React.Dispatch<React.SetStateAction<boolean>>
+    songs: ISong[];
+    setSongs: React.Dispatch<React.SetStateAction<ISong[]>>;
+    isSongPlaying: boolean;
+    setIsSongPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+    currentSong: ISong | null;
+    setCurrentSong: React.Dispatch<React.SetStateAction<ISong>>;
+    isMusicPlayerVisible: boolean
+    setIsMusicPlayerVisible: React.Dispatch<React.SetStateAction<boolean>>;
+    audioRef: any;
 }
 
-const defaultState = {
-    isFolderOpen: false,
-    setIsFolderOpen: () => { }
-} as IAppContextType
+const defaultState: IAppContextType = {
+    songs: [],
+    setSongs: () => {},
+    isSongPlaying: false,
+    setIsSongPlaying:  () => {},
+    currentSong: null,
+    setCurrentSong: () => {},
+    isMusicPlayerVisible: true,
+    setIsMusicPlayerVisible: () => {},
+    audioRef: null,
+  };
 
-export const AppContext = createContext(defaultState)
-
+export const AppContext = createContext(defaultState);
 
 const AppContextProvider = ({ children }: { children: ReactNode }) => {
+  const [songs, setSongs] = useState<ISong[]>(SONGS_DATA);
+  const [currentSong, setCurrentSong] = useState<ISong>(SONGS_DATA[0]);
+  const [isSongPlaying, setIsSongPlaying] = useState<boolean>(false);
+  const [isMusicPlayerVisible, setIsMusicPlayerVisible] = useState <boolean> (true)
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-    const [isFolderOpen, setIsFolderOpen] = useState<boolean>(false)
+  return (
+    <AppContext.Provider
+      value={{
+        songs,
+        setSongs,
+        isSongPlaying,
+        setIsSongPlaying,
+        currentSong,
+        setCurrentSong,
+        isMusicPlayerVisible,
+        setIsMusicPlayerVisible,
+        audioRef
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
+};
 
-    return (
-        <AppContext.Provider
-            value={{
-                isFolderOpen, setIsFolderOpen
-            }}
-        >
-            {children}
-
-        </AppContext.Provider>
-    )
-}
-
-export default AppContextProvider
+export default AppContextProvider;

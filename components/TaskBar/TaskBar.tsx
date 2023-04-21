@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useRef } from "react";
+import { AppContext } from "@/context/AppContext";
+import React, { useContext, useRef } from "react";
 import { TaskBarIconsDataArray } from "../../constants/data/TaskBarIconsData/TaskBarIconsData";
-import TaskBarIcon from "../TaskBarIcon/TaskBarIcon";
+import {TbMusicOff} from "react-icons/tb";
 import Tooltip from "../ToolTip";
 
 const TaskBar = () => {
   const iconRef = useRef<HTMLDivElement | null>(null);
+  const { isMusicPlayerVisible, setIsMusicPlayerVisible, isSongPlaying, setIsSongPlaying } = useContext(AppContext);
 
   const getTaskBarIconBgColor = (iconName: string) => {
     switch (iconName) {
@@ -34,6 +36,18 @@ const TaskBar = () => {
     }
   };
 
+  const getTaskBarIconFunction = (iconName: String) =>{ 
+    switch (iconName) {
+      case "Music":
+          setIsMusicPlayerVisible(!isMusicPlayerVisible)
+          setIsSongPlaying(false)
+          break;
+      default:
+        return alert(iconName);
+
+    }
+  }
+
   return (
     <div className="z-30 fixed bottom-2 md:bottom-[7vh] max-w-[97%] md:w-auto h-20 bg-black border border-black flex justify-center items-center rounded-lg">
       <div
@@ -44,7 +58,9 @@ const TaskBar = () => {
             return (
               <Tooltip content={taskBarIcon.iconName} key={taskBarIcon.id}>
                 <div
-                  
+                  onClick={() => {
+                    getTaskBarIconFunction(taskBarIcon?.iconName)
+                  }}
                   className={`${
                     taskBarIcon?.isVisibleOnMobile
                       ? "inline-flex"
@@ -60,7 +76,17 @@ const TaskBar = () => {
                     <span
                       className={`${taskBarIcon.iconColor} text-xl md:text-3xl pointer-events-none`}
                     >
-                      {taskBarIcon.icon}
+                      {taskBarIcon?.iconName !== 'Music' && taskBarIcon.icon}
+
+                      {taskBarIcon?.iconName === 'Music' && isMusicPlayerVisible ? (
+                        <TbMusicOff />
+                      ): null}
+
+                      {taskBarIcon?.iconName === 'Music' && !isMusicPlayerVisible ? (
+                         <span className={`${taskBarIcon.iconColor} text-xl md:text-3xl pointer-events-none`}> {taskBarIcon.icon} </span>
+                      ): null}
+                       
+                      
                     </span>
                   </div>
                 </div>
