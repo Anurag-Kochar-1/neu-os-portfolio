@@ -24,7 +24,7 @@ const MusicPlayer = () => {
     } else {
         audioRef.current?.pause()
     }
-  },[isSongPlaying, currentSong])
+  },[isSongPlaying, currentSong, isMusicPlayerVisible])
 
   if(!isMusicPlayerVisible) return
   return (

@@ -3,12 +3,12 @@
 import { AppContext } from "@/context/AppContext";
 import React, { useContext, useRef } from "react";
 import { TaskBarIconsDataArray } from "../../constants/data/TaskBarIconsData/TaskBarIconsData";
-import TaskBarIcon from "../TaskBarIcon/TaskBarIcon";
+import {TbMusicOff} from "react-icons/tb";
 import Tooltip from "../ToolTip";
 
 const TaskBar = () => {
   const iconRef = useRef<HTMLDivElement | null>(null);
-  const { isMusicPlayerVisible, setIsMusicPlayerVisible } = useContext(AppContext);
+  const { isMusicPlayerVisible, setIsMusicPlayerVisible, isSongPlaying, setIsSongPlaying } = useContext(AppContext);
 
   const getTaskBarIconBgColor = (iconName: string) => {
     switch (iconName) {
@@ -39,7 +39,9 @@ const TaskBar = () => {
   const getTaskBarIconFunction = (iconName: String) =>{ 
     switch (iconName) {
       case "Music":
-        return setIsMusicPlayerVisible(!isMusicPlayerVisible)
+          setIsMusicPlayerVisible(!isMusicPlayerVisible)
+          setIsSongPlaying(false)
+          break;
       default:
         return alert(iconName);
 
@@ -74,7 +76,17 @@ const TaskBar = () => {
                     <span
                       className={`${taskBarIcon.iconColor} text-xl md:text-3xl pointer-events-none`}
                     >
-                      {taskBarIcon.icon}
+                      {taskBarIcon?.iconName !== 'Music' && taskBarIcon.icon}
+
+                      {taskBarIcon?.iconName === 'Music' && isMusicPlayerVisible ? (
+                        <TbMusicOff />
+                      ): null}
+
+                      {taskBarIcon?.iconName === 'Music' && !isMusicPlayerVisible ? (
+                         <span className={`${taskBarIcon.iconColor} text-xl md:text-3xl pointer-events-none`}> {taskBarIcon.icon} </span>
+                      ): null}
+                       
+                      
                     </span>
                   </div>
                 </div>
