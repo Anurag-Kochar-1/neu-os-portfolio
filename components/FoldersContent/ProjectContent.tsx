@@ -19,12 +19,13 @@ const ProjectContent = () => {
 
   if (!subFolderName) return null;
   return (
-    <div className="flex flex-col space-y-6">
+    <div className="w-full flex flex-col justify-center items-center space-y-6">
+      <p className="text-4xl text-white font-black my-10"> Case Study of this Project is still under development : {")"} </p>
 
-      <a className="text-2xl font-semibold" href={projectData?.liveLink} target="_blank" rel="noreferrer">
+      <a className="text-2xl md:text-3xl font-semibold hover:cursor-pointer" href={projectData?.liveLink} target="_blank" rel="noreferrer">
         Live Site
       </a>
-      <a className="text-2xl font-semibold" href={projectData?.sourceCodeLink} target="_blank" rel="noreferrer">
+      <a className="text-2xl md:text-3xl font-semibold hover:cursor-pointer" href={projectData?.sourceCodeLink} target="_blank" rel="noreferrer">
         Source Code
       </a>
     </div>

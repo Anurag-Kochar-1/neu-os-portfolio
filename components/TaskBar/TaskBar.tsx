@@ -1,7 +1,7 @@
 "use client";
 
 import { AppContext } from "@/context/AppContext";
-import React, { useContext, useRef } from "react";
+import React, { MouseEvent, useContext, useRef } from "react";
 import { TaskBarIconsDataArray } from "../../constants/data/TaskBarIconsData/TaskBarIconsData";
 import {TbMusicOff} from "react-icons/tb";
 import Tooltip from "../ToolTip";
@@ -43,9 +43,13 @@ const TaskBar = () => {
           setIsSongPlaying(false)
           break;
       default:
-        return alert(iconName);
+       break;
 
     }
+  }
+
+  function handleIconClick(link: string) {
+    window.open(link, '_blank');
   }
 
   return (
@@ -58,8 +62,11 @@ const TaskBar = () => {
             return (
               <Tooltip content={taskBarIcon.iconName} key={taskBarIcon.id}>
                 <div
-                  onClick={() => {
+                  onClick={(e) => {
                     getTaskBarIconFunction(taskBarIcon?.iconName)
+                    if(taskBarIcon?.link !== null ) {
+                      handleIconClick(taskBarIcon.link)
+                    }
                   }}
                   className={`${
                     taskBarIcon?.isVisibleOnMobile
