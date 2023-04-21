@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useRef } from "react";
+import { AppContext } from "@/context/AppContext";
+import React, { useContext, useRef } from "react";
 import { TaskBarIconsDataArray } from "../../constants/data/TaskBarIconsData/TaskBarIconsData";
 import TaskBarIcon from "../TaskBarIcon/TaskBarIcon";
 import Tooltip from "../ToolTip";
 
 const TaskBar = () => {
   const iconRef = useRef<HTMLDivElement | null>(null);
+  const { isMusicPlayerVisible, setIsMusicPlayerVisible } = useContext(AppContext);
 
   const getTaskBarIconBgColor = (iconName: string) => {
     switch (iconName) {
@@ -34,6 +36,16 @@ const TaskBar = () => {
     }
   };
 
+  const getTaskBarIconFunction = (iconName: String) =>{ 
+    switch (iconName) {
+      case "Music":
+        return setIsMusicPlayerVisible(!isMusicPlayerVisible)
+      default:
+        return alert(iconName);
+
+    }
+  }
+
   return (
     <div className="z-30 fixed bottom-2 md:bottom-[7vh] max-w-[97%] md:w-auto h-20 bg-black border border-black flex justify-center items-center rounded-lg">
       <div
@@ -44,7 +56,9 @@ const TaskBar = () => {
             return (
               <Tooltip content={taskBarIcon.iconName} key={taskBarIcon.id}>
                 <div
-                  
+                  onClick={() => {
+                    getTaskBarIconFunction(taskBarIcon?.iconName)
+                  }}
                   className={`${
                     taskBarIcon?.isVisibleOnMobile
                       ? "inline-flex"

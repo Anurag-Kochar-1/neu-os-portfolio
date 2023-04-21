@@ -10,6 +10,8 @@ export interface IAppContextType {
     setIsSongPlaying: React.Dispatch<React.SetStateAction<boolean>>;
     currentSong: ISong | null;
     setCurrentSong: React.Dispatch<React.SetStateAction<ISong>>;
+    isMusicPlayerVisible: boolean
+    setIsMusicPlayerVisible: React.Dispatch<React.SetStateAction<boolean>>;
     audioRef: any;
 }
 
@@ -20,6 +22,8 @@ const defaultState: IAppContextType = {
     setIsSongPlaying:  () => {},
     currentSong: null,
     setCurrentSong: () => {},
+    isMusicPlayerVisible: true,
+    setIsMusicPlayerVisible: () => {},
     audioRef: null,
   };
 
@@ -29,6 +33,7 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
   const [songs, setSongs] = useState<ISong[]>(SONGS_DATA);
   const [currentSong, setCurrentSong] = useState<ISong>(SONGS_DATA[0]);
   const [isSongPlaying, setIsSongPlaying] = useState<boolean>(false);
+  const [isMusicPlayerVisible, setIsMusicPlayerVisible] = useState <boolean> (true)
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   return (
@@ -40,6 +45,8 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
         setIsSongPlaying,
         currentSong,
         setCurrentSong,
+        isMusicPlayerVisible,
+        setIsMusicPlayerVisible,
         audioRef
       }}
     >

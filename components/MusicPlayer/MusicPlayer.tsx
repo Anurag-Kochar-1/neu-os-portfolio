@@ -4,15 +4,8 @@ import { ISong, SONGS_DATA } from "../../constants/data/SongsData/SongsData";
 import Player from "./Player";
 
 const MusicPlayer = () => {
-  const {songs, setSongs,currentSong, setCurrentSong, isSongPlaying, setIsSongPlaying, audioRef } = useContext(AppContext)
+  const {songs, setSongs,currentSong, setCurrentSong, isSongPlaying, setIsSongPlaying, audioRef, isMusicPlayerVisible } = useContext(AppContext)
 
-  // ---- STATES ----
-  // const [songs, setSongs] = useState<ISong[]>(SONGS_DATA);
-  // const [currentSong, setCurrentSong] = useState<ISong>(SONGS_DATA[0]);
-  // const [isSongPlaying, setIsSongPlaying] = useState<boolean>(false);
-
-  // // ---- REFS ----
-  // const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const onPlaying = () => {
     if(audioRef.current) {
@@ -33,6 +26,7 @@ const MusicPlayer = () => {
     }
   },[isSongPlaying, currentSong])
 
+  if(!isMusicPlayerVisible) return
   return (
     <div className="col-start-2 col-end-12 xl:col-start-7 xl:col-end-11 2xl:col-start-7 2xl:col-end-10 xl:fixed xl:bottom-[20vh] xl:right-10 pb-96 pt-10 xl:pt-0 xl:pb-0">
       <audio src={currentSong?.audioSrc} ref={audioRef} onTimeUpdate={onPlaying} />
