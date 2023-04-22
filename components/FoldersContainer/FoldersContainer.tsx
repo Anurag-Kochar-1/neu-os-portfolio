@@ -4,7 +4,7 @@ import FolderIcon from "../FolderIcon/FolderIcon";
 
 const FoldersContainer = () => {
   return (
-    <div className="col-start-2 col-end-12 xl:col-start-7 xl:col-end-11 2xl:col-start-7 2xl:col-end-10 flex flex-wrap justify-between items-center xl:space-x-5  lg:pb-0">
+    <div className="col-start-2 col-end-12 xl:col-start-7 xl:col-end-11 2xl:col-start-7 2xl:col-end-10 flex flex-wrap justify-center md:justify-between items-center xl:space-x-5 my-10 xl:my-0">
       {DesktopFoldersData?.map((folder) => {
         return (
           <FolderIcon

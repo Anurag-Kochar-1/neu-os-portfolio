@@ -54,9 +54,9 @@ const AboutCard = () => {
         {/* ----------- Bottom bar -----------*/}
         <div className='flex w-full h-20 relative justify-between items-center border-t-2 border-t-black px-5' >
           <Image src={lightGrayLinesBg} alt="lightGrayLinesBg" width={400} height={400} className="absolute inset-0 w-full h-full object-cover opacity-40" draggable="false" />
-          <p className='text-base font-semibold'>@anurag__kochar</p>
+          <p className='hidden sm:inline-block font-semibold'>@anurag__kochar</p>
 
-          <span className='text-base font-semibold text-black'> Punjab | India </span>
+          <span className='text-sm sm:text-base  font-semibold text-black'> Punjab | India </span>
         </div>
 
 
