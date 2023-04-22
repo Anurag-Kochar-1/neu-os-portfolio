@@ -32,6 +32,8 @@ export default function Home() {
               className={`absolute left-0 bottom-0 top-0 w-full h-[50vh] xl:h-full xl:w-full xl:col-start-1 xl:col-end-4 object-cover`}
               draggable={false}
               priority
+              placeholder="blur"
+              blurDataURL="/images/blueImageSmall"
             />
             <AboutCard />
             <FoldersContainer />
