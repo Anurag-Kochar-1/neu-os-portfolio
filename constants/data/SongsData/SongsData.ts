@@ -18,6 +18,13 @@ export const SONGS_DATA:ISong[] = [
     },
     {
         id: 1,
+        title: "Fly Me To The Moon",
+        songBy: "Frank Sinatra",
+        audioSrc: `/songs/fly-me-to-the-moon/fly-me-to-the-moon-audio.mp3`,
+        thumbnail: "/images/songs/fly-me-to-the-moon/thumbnail.png"
+    },
+    {
+        id: 2,
         title: "Scopin",
         songBy: "Kordhell",
         audioSrc: `/songs/scopin/scopin-audio.mp3`,
