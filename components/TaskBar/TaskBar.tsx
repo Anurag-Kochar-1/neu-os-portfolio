@@ -27,7 +27,7 @@ const TaskBar = () => {
       case `Instagram`:
         return `bg-[#DB3073]`;
       case `GitHub`:
-          return `bg-[#FF6D47]`;
+          return `bg-[#FF7F00]`;
       case `Twitter`:
         return `bg-[#1DA1F2]`;
       case `YouTube`:

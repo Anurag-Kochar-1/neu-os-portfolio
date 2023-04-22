@@ -64,7 +64,7 @@ export const TaskBarIconsDataArray = [
     id: 5,
     iconName: "GitHub",
     icon: <BsGithub />,
-    bgColor: "bg-[#FF6D47]",
+    bgColor: "bg-[#FF7F00]",
     iconColor: "text-black",
     isVisibleOnMobile: false,
     link: `https://github.com/Anurag-Kochar-1`
