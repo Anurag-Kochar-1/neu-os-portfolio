@@ -1,8 +1,10 @@
-import { IProject } from '@/types/ProjectData'
-import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
+import { IProject } from '@/types/ProjectData'
+import Link from 'next/link'
+import Image from 'next/image'
 import Tag from './Tag'
+import blackImageSmall from "../../public/images/blackImageSmall.png"
+
 
 const ProjectCard = ( {project}: {project: IProject} ) => {
 
@@ -15,8 +17,9 @@ const ProjectCard = ( {project}: {project: IProject} ) => {
                 height={400}
                 alt={`${project.projectName}'s thumbnail`}
                 className='border-b-4 border-b-black rounded-tr-sm rounded-tl-sm object-contain'
-                priority
                 draggable="false"
+                placeholder='blur'
+                blurDataURL={`/images/blackImageSmall`}
             />
             <div className='w-full flex flex-col justify-center items-start px-2 py-2 space-y-1'>
               <h4 className='text-base font-semibold text-black'> {project?.projectName} || {project?.tagline} </h4>
