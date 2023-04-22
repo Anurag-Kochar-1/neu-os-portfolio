@@ -26,6 +26,8 @@ const TaskBar = () => {
         return `bg-[#DB7CFD]`;
       case `Instagram`:
         return `bg-[#DB3073]`;
+      case `GitHub`:
+          return `bg-[#FF7F00]`;
       case `Twitter`:
         return `bg-[#1DA1F2]`;
       case `YouTube`:
@@ -43,7 +45,6 @@ const TaskBar = () => {
       case 'Search':
         alert("Search Modal is under Development :)")
         break;
-
       case 'Mail':
         router.push("/?folder=Contact")
         break;
