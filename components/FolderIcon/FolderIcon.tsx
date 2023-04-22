@@ -86,7 +86,6 @@ const FolderIcon = ({
             height={600}
             className="w-20 aspect-square object-contain"
             draggable="false"
-            priority
           />
         </div>
       </div>
