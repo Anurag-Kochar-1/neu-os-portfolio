@@ -72,38 +72,39 @@ const Player = ({
     audioRef.current.currentTime = 0;
   }
 
-  useEffect(() => {
-    if(headerRef.current) {
-      headerRef.current.classList.add('MusicPlayerHeaderHandle');
-    }
-  },[])
+  // useEffect(() => {
+  //   if(headerRef.current) {
+  //     headerRef.current.classList.add('MusicPlayerHeaderHandle');
+  //   }
+  // },[])
 
   return (
-    <div className="w-72 sm:w-96 h-36 flex flex-col items-center justify-center bg-black border-2 border-black select-none">
+    <div className="w-full sm:w-96 h-36 flex flex-col items-center justify-center bg-black border-2 border-black select-none">
       <div className="w-full h-full -mt-3 -ml-3 flex flex-col items-center justify-start bg-[#D9D9D9] border-2 border-black">
         {/* ----- HEADER  -----*/}
         <div ref={headerRef} className={`w-full h-10 bg-black flex justify-between items-center px-2 hover:cursor-move`}>
           {/* DOTS */}
           <div className='flex justify-center items-center space-x-2'>
-            <span className='w-3 h-3 rounded-full bg-[#269B4E] hover:cursor-move'></span>
-            <span className='w-3 h-3 rounded-full bg-[#E9493D] hover:cursor-move'></span>
-            <span className='w-3 h-3 rounded-full bg-[#FFF052] hover:cursor-move'></span>
+            <span className='w-3 h-3 rounded-full bg-[#269B4E] hover:cursor-pointer'></span>
+            <span className='w-3 h-3 rounded-full bg-[#E9493D] hover:cursor-pointer'></span>
+            <span className='w-3 h-3 rounded-full bg-[#FFF052] hover:cursor-pointer'></span>
           </div>
 
-          <span className="text-white font-semibold text-sm hover:cursor-move"> SONGS I HEAR ALL THE TIME </span>
-          <MdOutlinePlayArrow className="hidden sm:inline-block text-white text-2xl hover:cursor-move" />
+          <span className="text-white font-semibold text-xs sm:text-sm "> SONGS I HEAR ALL THE TIME </span>
+          <MdOutlinePlayArrow className="hidden sm:inline-block text-white text-2xl" />
         </div>
 
         {/* ----- CONTAINER  -----*/}
-        <div className="w-full h-full flex  justify-start pl-5 sm:pl-0 items-center">
+        <div className="w-full h-full flex  justify-start  items-center">
           {/*  THUMBNAIL */}
-          <div className="hidden sm:inline-flex justify-center items-center px-2 py-1">
+          <div className="flex justify-center items-center px-1 sm:px-2 py-1">
             <Image
               src={currentSong?.thumbnail as string}
               alt={"Thumbnail"}
               width={200}
               height={200}
-              className={`w-20 h-20 rounded-full object-contain   ${isSongPlaying &&  "animate-spin"}`}
+              className={`w-20 h-20 rounded-full object-contain  ${isSongPlaying &&  "animate-spin"}`}
+              draggable={false}
             />
           </div>
 

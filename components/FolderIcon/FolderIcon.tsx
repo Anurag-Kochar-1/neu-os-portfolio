@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IFolderIcon } from "../../types/FolderIconData";
+import { useRouter } from "next/navigation";
 
 const FolderIcon = ({
   folderName,
@@ -10,22 +11,23 @@ const FolderIcon = ({
   onClick,
   bgColor,
 }: IFolderIcon) => {
+  const router = useRouter();
   const getFolderIconBgColor = () => {
     switch (folderName) {
       case "HTML":
         return `bg-[#FFBCAB]`;
 
       case "CSS":
-        return `bg-[#AFE2FF]`;
+        return `bg-[#AFE2FF] `;
 
       case "JavaScript":
-        return `bg-[#FEF6B3]`;
+        return `bg-[#FEF6B3] `;
 
       case "TypeScript":
         return `bg-[#AFDFFF]`;
 
       case "React JS":
-        return `bg-[#D4F9FF]`;
+        return `bg-[#D4F9FF] `;
 
       case "Next JS":
         return `bg-[#E8E8E8]`;
@@ -84,6 +86,7 @@ const FolderIcon = ({
             height={600}
             className="w-20 aspect-square object-contain"
             draggable="false"
+            priority
           />
         </div>
       </div>

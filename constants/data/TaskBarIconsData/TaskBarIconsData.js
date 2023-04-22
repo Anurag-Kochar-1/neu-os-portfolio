@@ -76,7 +76,7 @@ export const TaskBarIconsDataArray = [
     bgColor: "bg-[#FE0002]",
     iconColor: "text-black",
     isVisibleOnMobile: false,
-    link: `https://www.youtube.com/@TheAnuragKocharShow69/videos`
+    link: `https://youtu.be/xvFZjo5PgG0`
   },
   {
     id: 8,
