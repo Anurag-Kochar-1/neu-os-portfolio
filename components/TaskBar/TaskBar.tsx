@@ -5,8 +5,10 @@ import React, { MouseEvent, useContext, useRef } from "react";
 import { TaskBarIconsDataArray } from "../../constants/data/TaskBarIconsData/TaskBarIconsData";
 import {TbMusicOff} from "react-icons/tb";
 import Tooltip from "../ToolTip";
+import { useRouter } from "next/navigation";
 
 const TaskBar = () => {
+  const router = useRouter()
   const iconRef = useRef<HTMLDivElement | null>(null);
   const { isMusicPlayerVisible, setIsMusicPlayerVisible, isSongPlaying, setIsSongPlaying } = useContext(AppContext);
 
@@ -38,10 +40,25 @@ const TaskBar = () => {
 
   const getTaskBarIconFunction = (iconName: String) =>{ 
     switch (iconName) {
+      case 'Search':
+        alert("Search Modal is under Development :)")
+        break;
+
+      case 'Mail':
+        router.push("/?folder=Contact")
+        break;
+
+      case `Download Resume`:
+        alert("It's not uploaded yet, but trust me, it's good (hehe)");
+        break;
+      case 'About':
+        router.push("/?folder=About")
+        break;
       case "Music":
           setIsMusicPlayerVisible(!isMusicPlayerVisible)
           setIsSongPlaying(false)
           break;
+
       default:
        break;
 

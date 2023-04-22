@@ -101,7 +101,6 @@ const Folder = () => {
               </p>
               {folderName === "Contact" && (
                 <p className="text-2xl font-medium">
-                  {" "}
                   Email: anuragmarketing101@gmail.com{" "}
                 </p>
               )}
