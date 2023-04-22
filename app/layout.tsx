@@ -1,4 +1,5 @@
 import './globals.css'
+import { Analytics } from '@vercel/analytics/react';
 
 export default function RootLayout({
   children,
@@ -10,6 +11,7 @@ export default function RootLayout({
       <head />
       <body className='bg-[#FF5C5C] w-full h-screen flex flex-col justify-center items-center'>
         {children}
+        <Analytics />
       </body>
     </html>
   )
