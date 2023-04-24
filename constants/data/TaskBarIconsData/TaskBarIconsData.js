@@ -51,15 +51,6 @@ export const TaskBarIconsDataArray = [
     isVisibleOnMobile: true,
     link: null
   },
-  // {
-  //   id: 5,
-  //   iconName: "Instagram",
-  //   icon: <BsInstagram />,
-  //   bgColor: "bg-[#DB3073]",
-  //   iconColor: "text-black",
-  //   isVisibleOnMobile: false,
-  //   link: `https://www.instagram.com/anurag__kochar/`
-  // },
   {
     id: 5,
     iconName: "GitHub",

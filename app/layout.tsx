@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className="bg-[#FF5C5C] w-full h-screen flex flex-col justify-center items-center">
+      <body className="bg-black w-full h-screen flex flex-col justify-center items-center">
         <AppContextProvider>
           {children}
           <AnalyticsWrapper />

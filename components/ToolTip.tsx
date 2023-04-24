@@ -7,13 +7,16 @@ import { useState } from "react";
 interface TooltipProps {
   children: ReactNode;
   content: string;
+  isVisibleOnMobile?: boolean
 }
 
-const Tooltip: FC<TooltipProps> = ({ children, content }) => {
+const Tooltip: FC<TooltipProps> = ({ children, content, isVisibleOnMobile = true }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
+
+
   return (
-    <div className="relative inline-block">
+    <div className={`relative ${isVisibleOnMobile ? "inline-block" : "hidden md:inline-block"} `}>
       <div
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
@@ -29,4 +32,4 @@ const Tooltip: FC<TooltipProps> = ({ children, content }) => {
   );
 };
 
-export default Tooltip;
+export default React.memo(Tooltip);

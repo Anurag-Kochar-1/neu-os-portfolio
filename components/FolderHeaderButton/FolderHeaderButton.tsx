@@ -16,7 +16,7 @@ const FolderHeaderButton = ({
   buttonColor,
 }: IProps) => {
   return (
-    <div className="w-7 h-7 bg-black border border-black">
+    <div className="w-7 h-7 bg-black border border-black" onClick={() => onClick()}>
       <div
         onClick={() => onClick()}
         className={` w-7 h-7 -mt-1 -ml-1 ${buttonColor} border border-black  rounded-sm flex justify-center items-center hover:cursor-pointer folderClose`}
