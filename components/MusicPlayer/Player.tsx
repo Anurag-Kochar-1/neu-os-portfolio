@@ -123,7 +123,7 @@ const Player = ({
 
             {/* CONTROLS */}
             <div className="flex justify-center items-center space-x-2">
-              <RxTrackPrevious size={"1.4rem"} onClick={previousSong} />
+              <RxTrackPrevious size={"1.4rem"} onClick={previousSong} className="hover:cursor-pointer"/>
               {!isSongPlaying && (
                 <VscPlay size={"1.4rem"} onClick={playPause} className="hover:cursor-pointer"/>
               )}

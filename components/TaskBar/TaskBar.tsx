@@ -3,14 +3,19 @@
 import { AppContext } from "@/context/AppContext";
 import React, { MouseEvent, useContext, useRef } from "react";
 import { TaskBarIconsDataArray } from "../../constants/data/TaskBarIconsData/TaskBarIconsData";
-import {TbMusicOff} from "react-icons/tb";
+import { TbMusicOff } from "react-icons/tb";
 import Tooltip from "../ToolTip";
 import { useRouter } from "next/navigation";
 
 const TaskBar = () => {
-  const router = useRouter()
+  const router = useRouter();
   const iconRef = useRef<HTMLDivElement | null>(null);
-  const { isMusicPlayerVisible, setIsMusicPlayerVisible, isSongPlaying, setIsSongPlaying } = useContext(AppContext);
+  const {
+    isMusicPlayerVisible,
+    setIsMusicPlayerVisible,
+    isSongPlaying,
+    setIsSongPlaying,
+  } = useContext(AppContext);
 
   const getTaskBarIconBgColor = (iconName: string) => {
     switch (iconName) {
@@ -27,7 +32,7 @@ const TaskBar = () => {
       case `Instagram`:
         return `bg-[#DB3073]`;
       case `GitHub`:
-          return `bg-[#FF7F00]`;
+        return `bg-[#FF7F00]`;
       case `Twitter`:
         return `bg-[#1DA1F2]`;
       case `YouTube`:
@@ -40,57 +45,52 @@ const TaskBar = () => {
     }
   };
 
-  const getTaskBarIconFunction = (iconName: String) =>{ 
+  const getTaskBarIconFunction = (iconName: String) => {
     switch (iconName) {
-      case 'Search':
-        alert("Search Modal is under Development :)")
+      case "Search":
+        alert("Search Modal is under Development :)");
         break;
-      case 'Mail':
-        router.push("/?folder=Contact")
+      case "Mail":
+        router.push("/?folder=Contact");
         break;
 
       case `Download Resume`:
         alert("It's not uploaded yet, but trust me, it's good (hehe)");
         break;
-      case 'About':
-        router.push("/?folder=About")
+      case "About":
+        router.push("/?folder=About");
         break;
       case "Music":
-          setIsMusicPlayerVisible(!isMusicPlayerVisible)
-          setIsSongPlaying(false)
-          break;
+        setIsMusicPlayerVisible(!isMusicPlayerVisible);
+        setIsSongPlaying(false);
+        break;
 
       default:
-       break;
-
+        break;
     }
-  }
+  };
 
   function handleIconClick(link: string) {
-    window.open(link, '_blank');
+    window.open(link, "_blank");
   }
 
   return (
     <div className="z-50 fixed bottom-2 md:bottom-[7vh] max-w-[97%] md:w-auto h-20 bg-black border border-black flex justify-center items-center rounded-lg">
       <div
-        className={`w-full h-full -mt-2 -ml-2 bg-[#F7CF59] border border-black flex justify-start items-center rounded-lg space-x-2 sm:space-x-5 px-5`}
+        className={`w-full h-full -mt-2 -ml-2 bg-[#F7CF59] border border-black flex justify-center items-center rounded-lg space-x-2 sm:space-x-5 px-5`}
       >
         {TaskBarIconsDataArray &&
           TaskBarIconsDataArray?.map((taskBarIcon) => {
             return (
-              <Tooltip content={taskBarIcon.iconName} key={taskBarIcon.id}>
+              <Tooltip content={taskBarIcon.iconName} key={taskBarIcon.id} isVisibleOnMobile={taskBarIcon.isVisibleOnMobile}>
                 <div
                   onClick={(e) => {
-                    getTaskBarIconFunction(taskBarIcon?.iconName)
-                    if(taskBarIcon?.link !== null ) {
-                      handleIconClick(taskBarIcon.link)
+                    getTaskBarIconFunction(taskBarIcon?.iconName);
+                    if (taskBarIcon?.link !== null) {
+                      handleIconClick(taskBarIcon.link);
                     }
                   }}
-                  className={`${
-                    taskBarIcon?.isVisibleOnMobile
-                      ? "inline-flex"
-                      : "hidden md:inline-flex"
-                  } w-12 h-12  justify-center items-center bg-black border border-black hover:cursor-pointer hover:scale-110 transition-all duration-150 ease-in-out`}
+                  className={`w-12 h-12 flex justify-center items-center bg-black border border-black hover:cursor-pointer hover:scale-110 transition-all duration-150 ease-in-out`}
                 >
                   <div
                     className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center text-white border-2 border-black pointer-events-none ${getTaskBarIconBgColor(
@@ -101,17 +101,22 @@ const TaskBar = () => {
                     <span
                       className={`${taskBarIcon.iconColor} text-xl md:text-3xl pointer-events-none`}
                     >
-                      {taskBarIcon?.iconName !== 'Music' && taskBarIcon.icon}
+                      {taskBarIcon?.iconName !== "Music" && taskBarIcon.icon}
 
-                      {taskBarIcon?.iconName === 'Music' && isMusicPlayerVisible ? (
+                      {taskBarIcon?.iconName === "Music" &&
+                      isMusicPlayerVisible ? (
                         <TbMusicOff />
-                      ): null}
+                      ) : null}
 
-                      {taskBarIcon?.iconName === 'Music' && !isMusicPlayerVisible ? (
-                         <span className={`${taskBarIcon.iconColor} text-xl md:text-3xl pointer-events-none`}> {taskBarIcon.icon} </span>
-                      ): null}
-                       
-                      
+                      {taskBarIcon?.iconName === "Music" &&
+                      !isMusicPlayerVisible ? (
+                        <span
+                          className={`${taskBarIcon.iconColor} text-xl md:text-3xl pointer-events-none`}
+                        >
+                          {" "}
+                          {taskBarIcon.icon}{" "}
+                        </span>
+                      ) : null}
                     </span>
                   </div>
                 </div>

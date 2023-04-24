@@ -16,7 +16,7 @@ interface IProps {
 
 const TaskBarIcon = ({ icon }: IProps) => {
     return (
-        <div onClick={() => console.log(icon)} className={` ${icon.isVisibleOnMobile ? "inline-flex" : "hidden sm:inline-flex"} w-14 h-14 justify-center items-center bg-black border border-black  hover:scale-110 `}>
+        <div className={` ${icon.isVisibleOnMobile ? "inline-flex" : "hidden sm:inline-flex"} w-14 h-14 justify-center items-center bg-black border border-black  hover:scale-110 `}>
             <div className={`w-full h-full -mt-2 -ml-2 flex justify-center items-center border-2 border-black
             ${icon.icon === "IoMdDownload" && "bg-[#00FD74]"} 
             ${icon.icon === "MdMail" && "bg-[#FEF400]"}  
