@@ -20,7 +20,7 @@ const FolderHeader = ( {isFolderMaximized, setIsFolderMaximized}: IProps ) => {
   return (
     <div className="headerHandle sticky top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex items-center px-5 hover:cursor-move">
       {/* <span>.</span> */}
-      <h2 className="font-semibold w-full text-center text-xl text-white pointer-events-none">
+      <h2 className="font-semibold w-full text-center text-xl text-white ">
         {!subFolderName && folderName}
         {subFolderName && subFolderName}
       </h2>
@@ -42,14 +42,17 @@ const FolderHeader = ( {isFolderMaximized, setIsFolderMaximized}: IProps ) => {
               <FiMaximize2 size={"1.3rem"} />
             )
           }
-          onClick={() => setIsFolderMaximized(!isFolderMaximized)}
-        />
+          onClick={() => {
+            setIsFolderMaximized(!isFolderMaximized)
+          }}
+          />
         <FolderHeaderButton
           buttonColor={`bg-[#FF5E5E]`}
           buttonName="close"
           buttonIcon={<IoClose size={"1.3rem"} />}
           onClick={() => {
             router.push(`/`);
+            console.log(`closing`)
           }}
         />
       </div>

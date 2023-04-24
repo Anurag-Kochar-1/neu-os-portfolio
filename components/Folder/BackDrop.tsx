@@ -15,7 +15,6 @@ const BackDrop = ({
   const handleOverlayClick = (
     e: MouseEvent<HTMLButtonElement | HTMLDivElement>
   ) => {
-    console.log(e.target);
     if (e.target === containerRef.current && e.target !== folderRef.current) {
       router.push("/");
     }
