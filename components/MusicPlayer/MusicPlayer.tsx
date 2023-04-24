@@ -1,3 +1,5 @@
+'use client'
+
 import { AppContext } from "@/context/AppContext";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Draggable from "react-draggable";
