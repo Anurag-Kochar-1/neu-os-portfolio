@@ -16,6 +16,7 @@ import ProjectContent from "../FoldersContent/ProjectContent";
 import FolderHeader from "./FolderHeader";
 import BackDrop from "./BackDrop";
 import AboutContent from "../FoldersContent/AboutContent";
+import ContactContent from "../FoldersContent/ContactContent";
 
 const gifYouUp = {
   hidden: {
@@ -53,7 +54,7 @@ const Folder = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const folderRef = useRef<HTMLDivElement | null>(null);
 
-  const availableFolders = ["Skills", "Projects", "About"];
+  const availableFolders = ["Skills", "Projects", "About", "Contact"];
 
   const getFolderBgColor = () => {
     switch (folderName) {
@@ -95,19 +96,17 @@ const Folder = () => {
           ) : null}
           {subFolderName ? <ProjectContent /> : null}
           {folderName === "About" && <AboutContent />}
+          {folderName === "Contact" && <ContactContent />}
 
           {!availableFolders?.includes(folderName) && (
             <div className="w-full  my-10 d flex flex-col justify-center items-center space-y-3">
               <p className="text-center text-5xl font-semibol">
                 {folderName} Folder is under construction
               </p>
-              {folderName === "Contact" && (
-                <p className="text-2xl font-medium">
-                  Email: anuragmarketing101@gmail.com{" "}
-                </p>
-              )}
             </div>
           )}
+
+         
         </div>
       </Draggable>
     </BackDrop>
