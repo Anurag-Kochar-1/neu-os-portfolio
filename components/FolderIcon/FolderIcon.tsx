@@ -76,17 +76,17 @@ const FolderIcon = ({
       onClick={onClick}
     >
       <div
-        className={`w-32 h-32 flex flex-col justify-center items-center bg-black border-2 border-black rounded-sm pointer-events-none`}
+        className={`w-24 h-24 md:w-32 md:h-32 flex flex-col justify-center items-center bg-black border-2 border-black rounded-sm pointer-events-none`}
       >
         <div
-          className={`w-32 h-32 ${getFolderIconBgColor()} flex flex-col justify-center items-center border-4 border-black -ml-5 -mt-5 rounded-sm`}
+          className={`w-24 h-24 md:w-32 md:h-32 ${getFolderIconBgColor()} flex flex-col justify-center items-center border-4 border-black -ml-5 -mt-5 rounded-sm`}
         >
           <Image
             src={folderIcon}
             alt={folderName}
             width={600}
             height={600}
-            className="w-20 aspect-square object-contain"
+            className="w-12 md:w-20 aspect-square object-contain"
             draggable="false"
           />
         </div>

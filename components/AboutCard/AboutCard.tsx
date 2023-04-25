@@ -60,9 +60,18 @@ const AboutCard = () => {
 
             <Link
               href={`/?folder=About`}
-              className="my-10 px-7 py-1 rounded-none border-2 border-black "
+              className="relative w-60 h-20 my-10 rounded-none"
             >
-              read more{" "}
+              <Image 
+                src={`/images/circleLine.png`}
+                alt={"circlLines"}
+                width={200}
+                height={100}
+                draggable={false}
+                className="w-full h-full aspect-auto absolute inset-0"
+              />
+
+              <span className="absolute inset-0 flex items-center justify-center z-10 text-[#6101FF] italic font-bold text-xl bg-opacity-50 top-1/2 transform -translate-y-1/2"> Read More </span>
             </Link>
           </div>
         </div>
