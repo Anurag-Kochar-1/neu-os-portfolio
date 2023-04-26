@@ -13,7 +13,7 @@ const SkillsFolderContent = () => {
             folderIcon={`/images/skillIcons/${skill.skillIcon}`}
             folderLinkHref={`/?folder=Skills`}
             bgColor={`${skill?.skillBgColor}`}
-            
+            isOnClickDisabled={true}
           />
         );
       })}

@@ -1,15 +1,23 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { IProject } from '@/types/ProjectData'
-import Link from 'next/link'
 import Image from 'next/image'
 import Tag from './Tag'
-import blackImageSmall from "../../public/images/blackImageSmall.png"
+import { AppContext } from '@/context/AppContext'
 
 
 const ProjectCard = ( {project}: {project: IProject} ) => {
+  const { folderState, setFolderState } = useContext(AppContext);
 
   return (
-    <Link href={`/?folder=Projects&subFolder=${project.projectName}`} className='w-60 md:w-72 lg:w-80 aspect-video flex flex-col justify-center items-center bg-black border-2 border-black rounded-lg m-5 hover:cursor-pointer '>
+    <div onClick={() => {
+      setFolderState({
+        isFolderOpen: true,
+        folderType: "SubFolder",
+        folderName: "Projects",
+        subFolderName: project.projectName
+        
+      })
+    }} className='w-60 md:w-72 lg:w-80 aspect-video flex flex-col justify-center items-center bg-black border-2 border-black rounded-lg m-5 hover:cursor-pointer '>
         <div className='w-60 md:w-72 lg:w-80 aspect-video -mt-4 -ml-4 bg-white border-4 border-black rounded-lg pointer-events-none'>
             <Image 
                 src={project?.thumbnail}
@@ -32,7 +40,7 @@ const ProjectCard = ( {project}: {project: IProject} ) => {
             </div>
 
         </div>
-    </Link>
+    </div>
   )
 }
 

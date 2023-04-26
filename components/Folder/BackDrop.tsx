@@ -26,7 +26,9 @@ const BackDrop = ({
     <motion.div
       onClick={(e) => setFolderState({
         isFolderOpen: false,
-        folderName: null
+        folderName: null,
+        folderType: null,
+        subFolderName: null
       })}
       className="z-50 fixed inset-0 w-full h-screen bg-black/[.50] flex justify-center items-center"
       ref={containerRef}

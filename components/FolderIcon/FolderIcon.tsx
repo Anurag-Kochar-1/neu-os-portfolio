@@ -13,6 +13,7 @@ const FolderIcon = ({
   folderLinkHref,
   onClick,
   bgColor,
+  isOnClickDisabled = false
 }: IFolderIcon) => {
   const router = useRouter();
   const getFolderIconBgColor = () => {
@@ -75,10 +76,16 @@ const FolderIcon = ({
     <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.9 }}
-      onClick={() => setFolderState({
-        ...folderState,
-        isFolderOpen: true
-      })}
+      onClick={() => {
+        if(!isOnClickDisabled) {
+          setFolderState({
+            isFolderOpen: true,
+            folderName: folderName,
+            folderType: "Folder",
+            subFolderName: null
+          })
+        }
+      }}
     >
         <div className="flex flex-col justify-center items-center space-y-2 m-5 hover:cursor-pointer hover:scale-105 select-none">
           <div

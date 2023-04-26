@@ -19,6 +19,7 @@ import AboutContent from "../FoldersContent/AboutContent";
 import ContactContent from "../FoldersContent/ContactContent";
 import { AppContext } from "@/context/AppContext";
 import { AnimatePresence, motion } from "framer-motion";
+import { ProjectsData } from "@/constants/data/ProjectsData/ProjectsData";
 
 const gifYouUp = {
   hidden: {
@@ -47,8 +48,6 @@ const Folder = () => {
   console.log(`===== FOLDER COMPONENT IS RENDERING =====`);
   const router = useRouter();
   const searchParams = useSearchParams();
-  const folderName = searchParams.get("folder");
-  const subFolderName = searchParams.get("subFolder");
 
   // ----- STATES ----
   const [isFolderMaximized, setIsFolderMaximized] = useState<boolean>(false);
@@ -61,7 +60,7 @@ const Folder = () => {
   const availableFolders = ["Skills", "Projects", "About", "Contact"];
 
   const getFolderBgColor = () => {
-    switch (folderName) {
+    switch (folderState?.folderName) {
       case "Skills":
         return `bg-[#644BDF]`;
       case "Projects":
@@ -70,7 +69,6 @@ const Folder = () => {
         return `bg-white`;
     }
   };
-
 
   return (
     <AnimatePresence initial={false} mode="wait">
@@ -95,15 +93,18 @@ const Folder = () => {
               setIsFolderMaximized={setIsFolderMaximized}
             />
 
-            {/* {folderName === "Skills" && !subFolderName ? (
-            <SkillsFolderContent />
-          ) : null}
-          {folderName === "Projects" && !subFolderName ? (
-            <ProjectsFolderContent />
-          ) : null}
-          {subFolderName ? <ProjectContent /> : null}
-          {folderName === "About" && <AboutContent />}
-          {folderName === "Contact" && <ContactContent />} */}
+            {folderState?.folderName === "Skills" && folderState?.folderType === "Folder" ? (
+              <SkillsFolderContent />
+            ) : null}
+
+            {folderState?.folderName === "Projects" && folderState?.folderType === "Folder" ? (
+              <ProjectsFolderContent />
+            ) : null}
+
+            {folderState.folderName === 'Projects' && folderState.folderType === "SubFolder" ? <ProjectContent /> : null }
+
+            {folderState?.folderName === "About" && folderState?.folderType === "Folder" ? <AboutContent /> : null}
+            {folderState?.folderName === "Contact" && folderState?.folderType === "Folder" ? <ContactContent /> : null}
 
             {/* {!availableFolders?.includes(folderName) && (
             <div className="w-full  my-10 d flex flex-col justify-center items-center space-y-3">

@@ -29,7 +29,9 @@ const defaultState: IAppContextType = {
     audioRef: null,
     folderState: {
       isFolderOpen: false,
-      folderName: null
+      folderType: null,
+      folderName: null,
+      subFolderName: null
     },
     setFolderState: () => {}
 }
@@ -40,6 +42,8 @@ export const AppContext = createContext(defaultState);
 interface IFolderState {
   isFolderOpen: boolean
   folderName: string | null
+  folderType: "Folder" | "SubFolder" | null
+  subFolderName: string | null
 }
 
 const AppContextProvider = ({ children }: { children: ReactNode }) => {
@@ -51,7 +55,9 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [folderState, setFolderState] = useState <IFolderState> ( {
     isFolderOpen: false,
-    folderName: null
+    folderType: null,
+    folderName: null,
+    subFolderName: null
   } )
 
   return (
