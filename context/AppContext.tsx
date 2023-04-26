@@ -13,6 +13,8 @@ export interface IAppContextType {
     isMusicPlayerVisible: boolean
     setIsMusicPlayerVisible: React.Dispatch<React.SetStateAction<boolean>>;
     audioRef: any;
+    isFolderOpen: boolean
+    setsFolderOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const defaultState: IAppContextType = {
@@ -25,11 +27,16 @@ const defaultState: IAppContextType = {
     isMusicPlayerVisible: true,
     setIsMusicPlayerVisible: () => {},
     audioRef: null,
-  };
+    isFolderOpen: false,
+    setsFolderOpen: () => {}
+}
+
 
 export const AppContext = createContext(defaultState);
 
 const AppContextProvider = ({ children }: { children: ReactNode }) => {
+
+  const [isFolderOpen, setsFolderOpen] =  useState <boolean> (false)
   const [songs, setSongs] = useState<ISong[]>(SONGS_DATA);
   const [currentSong, setCurrentSong] = useState<ISong>(SONGS_DATA[0]);
   const [isSongPlaying, setIsSongPlaying] = useState<boolean>(false);
@@ -47,7 +54,9 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
         setCurrentSong,
         isMusicPlayerVisible,
         setIsMusicPlayerVisible,
-        audioRef
+        audioRef,
+        isFolderOpen,
+        setsFolderOpen
       }}
     >
       {children}
