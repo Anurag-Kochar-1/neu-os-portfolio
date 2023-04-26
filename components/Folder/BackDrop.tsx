@@ -12,7 +12,7 @@ const BackDrop = ({
 }) => {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const { isFolderOpen, setsFolderOpen } = useContext(AppContext);
+  const { folderState, setFolderState } = useContext(AppContext);
 
   const handleOverlayClick = (
     e: MouseEvent<HTMLButtonElement | HTMLDivElement>
@@ -24,16 +24,17 @@ const BackDrop = ({
 
   return (
     <motion.div
-      onClick={(e) => setsFolderOpen(false)}
+      onClick={(e) => setFolderState({
+        isFolderOpen: false,
+        folderName: null
+      })}
       className="z-50 fixed inset-0 w-full h-screen bg-black/[.50] flex justify-center items-center"
       ref={containerRef}
       initial={{opacity: 0}}
       animate={{opacity: 1}}
       exit={{opacity: 0}}
     >
-      {/* <div> */}
       {children}
-      {/* </div> */}
     </motion.div>
   );
 };

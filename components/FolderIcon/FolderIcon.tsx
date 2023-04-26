@@ -69,15 +69,18 @@ const FolderIcon = ({
         return `bg-white`;
     }
   };
-  const { isFolderOpen, setsFolderOpen } = useContext(AppContext);
+  const { folderState, setFolderState } = useContext(AppContext);
 
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.9 }}
-      onClick={() => setsFolderOpen(true)}
+      onClick={() => setFolderState({
+        ...folderState,
+        isFolderOpen: true
+      })}
     >
-        <div className="flex flex-col justify-center items-center space-y-2 m-5 hover:cursor-pointer hover:scale-105">
+        <div className="flex flex-col justify-center items-center space-y-2 m-5 hover:cursor-pointer hover:scale-105 select-none">
           <div
             className={`w-24 h-24 md:w-32 md:h-32 flex flex-col justify-center items-center bg-black border-2 border-black rounded-sm pointer-events-none`}
           >
@@ -89,7 +92,7 @@ const FolderIcon = ({
                 alt={folderName}
                 width={600}
                 height={600}
-                className="w-12 md:w-20 aspect-square object-contain"
+                className="w-12 md:w-20 aspect-square object-contain select-none"
                 draggable="false"
               />
             </div>

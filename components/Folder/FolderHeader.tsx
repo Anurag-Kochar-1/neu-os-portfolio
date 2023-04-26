@@ -17,7 +17,7 @@ const FolderHeader = ( {isFolderMaximized, setIsFolderMaximized}: IProps ) => {
   const searchParams = useSearchParams();
   const folderName = searchParams.get("folder");
   const subFolderName = searchParams.get("subFolder");
-  const { isFolderOpen, setsFolderOpen } = useContext(AppContext)
+  const { folderState, setFolderState } = useContext(AppContext);
 
   return (
     <div className=" sticky top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex items-center px-5 hover:cursor-move">
@@ -32,7 +32,10 @@ const FolderHeader = ( {isFolderMaximized, setIsFolderMaximized}: IProps ) => {
           buttonColor={`bg-[#FFB443]`}
           buttonName="close"
           buttonIcon={<FaMinus size={"1.3rem"} />}
-          onClick={() => setsFolderOpen(false)}
+          onClick={() => setFolderState({
+            isFolderOpen: false,
+            folderName: null
+          })}
         />
         <FolderHeaderButton
           buttonColor={`bg-[#00FE74]`}
@@ -52,9 +55,10 @@ const FolderHeader = ( {isFolderMaximized, setIsFolderMaximized}: IProps ) => {
           buttonColor={`bg-[#FF5E5E]`}
           buttonName="close"
           buttonIcon={<IoClose size={"1.3rem"} />}
-          onClick={() => {
-            setsFolderOpen(false)
-          }}
+          onClick={() => setFolderState({
+            isFolderOpen: false,
+            folderName: null
+          })}
         />
       </div>
     </div>

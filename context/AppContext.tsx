@@ -13,8 +13,8 @@ export interface IAppContextType {
     isMusicPlayerVisible: boolean
     setIsMusicPlayerVisible: React.Dispatch<React.SetStateAction<boolean>>;
     audioRef: any;
-    isFolderOpen: boolean
-    setsFolderOpen: React.Dispatch<React.SetStateAction<boolean>>
+    folderState: IFolderState
+    setFolderState: React.Dispatch<React.SetStateAction<IFolderState>>
 }
 
 const defaultState: IAppContextType = {
@@ -27,21 +27,32 @@ const defaultState: IAppContextType = {
     isMusicPlayerVisible: true,
     setIsMusicPlayerVisible: () => {},
     audioRef: null,
-    isFolderOpen: false,
-    setsFolderOpen: () => {}
+    folderState: {
+      isFolderOpen: false,
+      folderName: null
+    },
+    setFolderState: () => {}
 }
 
 
 export const AppContext = createContext(defaultState);
 
+interface IFolderState {
+  isFolderOpen: boolean
+  folderName: string | null
+}
+
 const AppContextProvider = ({ children }: { children: ReactNode }) => {
 
-  const [isFolderOpen, setsFolderOpen] =  useState <boolean> (false)
   const [songs, setSongs] = useState<ISong[]>(SONGS_DATA);
   const [currentSong, setCurrentSong] = useState<ISong>(SONGS_DATA[0]);
   const [isSongPlaying, setIsSongPlaying] = useState<boolean>(false);
   const [isMusicPlayerVisible, setIsMusicPlayerVisible] = useState <boolean> (true)
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [folderState, setFolderState] = useState <IFolderState> ( {
+    isFolderOpen: false,
+    folderName: null
+  } )
 
   return (
     <AppContext.Provider
@@ -55,8 +66,8 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
         isMusicPlayerVisible,
         setIsMusicPlayerVisible,
         audioRef,
-        isFolderOpen,
-        setsFolderOpen
+        folderState,
+        setFolderState
       }}
     >
       {children}

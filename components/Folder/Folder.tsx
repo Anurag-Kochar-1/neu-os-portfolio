@@ -52,7 +52,7 @@ const Folder = () => {
 
   // ----- STATES ----
   const [isFolderMaximized, setIsFolderMaximized] = useState<boolean>(false);
-  const { isFolderOpen, setsFolderOpen } = useContext(AppContext);
+  const { folderState, setFolderState } = useContext(AppContext);
 
   // ---- REFS ----
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -71,11 +71,10 @@ const Folder = () => {
     }
   };
 
-  // if (!isFolderOpen) return null;
 
   return (
     <AnimatePresence initial={false} mode="wait">
-      {isFolderOpen && (
+      {folderState?.isFolderOpen && (
         <BackDrop folderRef={folderRef}>
           <motion.div
             onClick={(e) => e.stopPropagation()}
