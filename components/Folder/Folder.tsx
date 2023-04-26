@@ -17,6 +17,8 @@ import FolderHeader from "./FolderHeader";
 import BackDrop from "./BackDrop";
 import AboutContent from "../FoldersContent/AboutContent";
 import ContactContent from "../FoldersContent/ContactContent";
+import { AppContext } from "@/context/AppContext";
+import { AnimatePresence, motion } from "framer-motion";
 
 const gifYouUp = {
   hidden: {
@@ -42,6 +44,7 @@ const gifYouUp = {
 };
 
 const Folder = () => {
+  console.log(`===== FOLDER COMPONENT IS RENDERING =====`);
   const router = useRouter();
   const searchParams = useSearchParams();
   const folderName = searchParams.get("folder");
@@ -49,6 +52,7 @@ const Folder = () => {
 
   // ----- STATES ----
   const [isFolderMaximized, setIsFolderMaximized] = useState<boolean>(false);
+  const { isFolderOpen, setsFolderOpen } = useContext(AppContext);
 
   // ---- REFS ----
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -67,28 +71,32 @@ const Folder = () => {
     }
   };
 
-  const ulClass = `text-base text-black font-medium`;
-
-  if (!folderName) return null;
+  // if (!isFolderOpen) return null;
 
   return (
-    <BackDrop folderRef={folderRef}>
-      <Draggable handle=".headerHandle" bounds="parent">
-        <div
-          className={`${
-            isFolderMaximized
-              ? "w-[100%] h-[100vh]"
-              : "w-[90%] h-[90vh] md:w-[70%] md:h-[70vh]"
-          } relative ${getFolderBgColor()} border-4 border-black rounded-sm overflow-x-hidden overflow-y-auto scrollbar-hide`}
-          ref={folderRef}
-        >
-          {/* ------ HEADER ------ */}
-          <FolderHeader
-            isFolderMaximized={isFolderMaximized}
-            setIsFolderMaximized={setIsFolderMaximized}
-          />
+    <AnimatePresence initial={false} mode="wait">
+      {isFolderOpen && (
+        <BackDrop folderRef={folderRef}>
+          <motion.div
+            onClick={(e) => e.stopPropagation()}
+            variants={gifYouUp}
+            initial="hidden"
+            animate="visible"
+            exit={"exit"}
+            className={`${
+              isFolderMaximized
+                ? "w-[100%] h-[100vh]"
+                : "w-[90%] h-[90vh] md:w-[70%] md:h-[70vh]"
+            } relative ${getFolderBgColor()} border-4 border-black rounded-sm overflow-x-hidden overflow-y-auto scrollbar-hide`}
+            ref={folderRef}
+          >
+            {/* ------ HEADER ------ */}
+            <FolderHeader
+              isFolderMaximized={isFolderMaximized}
+              setIsFolderMaximized={setIsFolderMaximized}
+            />
 
-          {folderName === "Skills" && !subFolderName ? (
+            {/* {folderName === "Skills" && !subFolderName ? (
             <SkillsFolderContent />
           ) : null}
           {folderName === "Projects" && !subFolderName ? (
@@ -96,20 +104,19 @@ const Folder = () => {
           ) : null}
           {subFolderName ? <ProjectContent /> : null}
           {folderName === "About" && <AboutContent />}
-          {folderName === "Contact" && <ContactContent />}
+          {folderName === "Contact" && <ContactContent />} */}
 
-          {!availableFolders?.includes(folderName) && (
+            {/* {!availableFolders?.includes(folderName) && (
             <div className="w-full  my-10 d flex flex-col justify-center items-center space-y-3">
               <p className="text-center text-5xl font-semibol">
                 {folderName} Folder is under construction
               </p>
             </div>
-          )}
-
-         
-        </div>
-      </Draggable>
-    </BackDrop>
+          )} */}
+          </motion.div>
+        </BackDrop>
+      )}
+    </AnimatePresence>
   );
 };
 

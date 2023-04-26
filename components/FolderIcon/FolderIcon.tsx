@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { IFolderIcon } from "../../types/FolderIconData";
 import { useRouter } from "next/navigation";
+import { AppContext } from "@/context/AppContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FolderIcon = ({
   folderName,
@@ -68,33 +69,36 @@ const FolderIcon = ({
         return `bg-white`;
     }
   };
+  const { isFolderOpen, setsFolderOpen } = useContext(AppContext);
 
   return (
-    <Link
-      href={folderLinkHref}
-      className="flex flex-col justify-center items-center space-y-2 m-5 hover:cursor-pointer hover:scale-105"
-      onClick={onClick}
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.9 }}
+      onClick={() => setsFolderOpen(true)}
     >
-      <div
-        className={`w-24 h-24 md:w-32 md:h-32 flex flex-col justify-center items-center bg-black border-2 border-black rounded-sm pointer-events-none`}
-      >
-        <div
-          className={`w-24 h-24 md:w-32 md:h-32 ${getFolderIconBgColor()} flex flex-col justify-center items-center border-4 border-black -ml-5 -mt-5 rounded-sm`}
-        >
-          <Image
-            src={folderIcon}
-            alt={folderName}
-            width={600}
-            height={600}
-            className="w-12 md:w-20 aspect-square object-contain"
-            draggable="false"
-          />
+        <div className="flex flex-col justify-center items-center space-y-2 m-5 hover:cursor-pointer hover:scale-105">
+          <div
+            className={`w-24 h-24 md:w-32 md:h-32 flex flex-col justify-center items-center bg-black border-2 border-black rounded-sm pointer-events-none`}
+          >
+            <div
+              className={`w-24 h-24 md:w-32 md:h-32 ${getFolderIconBgColor()} flex flex-col justify-center items-center border-4 border-black -ml-5 -mt-5 rounded-sm`}
+            >
+              <Image
+                src={folderIcon}
+                alt={folderName}
+                width={600}
+                height={600}
+                className="w-12 md:w-20 aspect-square object-contain"
+                draggable="false"
+              />
+            </div>
+          </div>
+          <h3 className="mt-10 text-black text-xl font-bold hover:cursor-pointer">
+            {folderName}
+          </h3>
         </div>
-      </div>
-      <h3 className="mt-10 text-black text-xl font-bold hover:cursor-pointer">
-        {folderName}
-      </h3>
-    </Link>
+    </motion.div>
   );
 };
 

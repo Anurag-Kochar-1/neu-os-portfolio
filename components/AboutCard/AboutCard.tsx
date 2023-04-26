@@ -99,4 +99,4 @@ const AboutCard = () => {
   );
 };
 
-export default AboutCard;
+export default React.memo(AboutCard);
