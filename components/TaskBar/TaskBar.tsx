@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 
 const TaskBar = () => {
   const router = useRouter();
+  const { setFolderState } = useContext(AppContext)
   const iconRef = useRef<HTMLDivElement | null>(null);
   const {
     isMusicPlayerVisible,
@@ -58,7 +59,12 @@ const TaskBar = () => {
         alert("It's not uploaded yet, but trust me, it's good (hehe)");
         break;
       case "About":
-        router.push("/?folder=About");
+        setFolderState({
+          isFolderOpen: true,
+          folderName: "About",
+          folderType: "Folder",
+          subFolderName: null
+        })
         break;
       case "Music":
         setIsMusicPlayerVisible(!isMusicPlayerVisible);
