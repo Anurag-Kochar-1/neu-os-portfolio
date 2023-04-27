@@ -11,6 +11,7 @@ import dynamic from 'next/dynamic'
 const Folder = dynamic(() => import('../components/Folder/Folder'))
 
 export default function Home() {
+  // 
   return (
       <main className="w-full h-[100%] flex justify-center items-center md:border-0 md:border-black bg-black overflow-hidden">
         <div className="w-full h-full flex flex-col justify-start items-center md:border-0 md:border-black bg-white md:-mt-0 md:-ml-0 overflow-x-hidden overflow-y-scroll scrollbar-hide ">

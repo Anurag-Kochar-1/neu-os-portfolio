@@ -1,11 +1,12 @@
+"use client"
+import React, { useContext } from "react";
 import Image from "next/image";
-import React from "react";
 import anuragPNG from "../../public/images/creator/anuragPNG.png";
 import lightGrayLinesBg from "../../public/images/BGs/lightGrayLinesBg.png";
-import Link from "next/link";
-
+import { AppContext } from "@/context/AppContext";
 
 const AboutCard = () => {
+  const { setFolderState } = useContext(AppContext);
   return (
     <div className="z-20 my-5 col-start-2 col-end-12 md:col-start-2 md:col-end-12 lg:col-start-3 lg:col-end-11 xl:col-start-1 xl:col-end-7 xl:mx-5 2xl:col-start-1 2xl:col-end-6 2xl:mx-6 flex flex-col items-center justify-center border-2 border-black bg-black">
       <div className="w-full h-full -mt-3 -ml-3 flex flex-col justify-start items-center bg-white border-2 border-black">
@@ -57,11 +58,18 @@ const AboutCard = () => {
               solves real-world problems, and yeah I create content too. :D
             </p>
 
-            <Link
-              href={`/?folder=About`}
-              className="relative w-60 h-20 my-10 rounded-none"
+            <div
+              onClick={() => {
+                setFolderState({
+                  isFolderOpen: true,
+                  folderName: "About",
+                  folderType: "Folder",
+                  subFolderName: null,
+                });
+              }}
+              className="relative w-60 h-20 my-10 rounded-none hover:cursor-pointer"
             >
-              <Image 
+              <Image
                 src={`/images/circleLine.png`}
                 alt={"circlLines"}
                 width={200}
@@ -70,8 +78,11 @@ const AboutCard = () => {
                 className="w-full h-full aspect-auto absolute inset-0"
               />
 
-              <span className="absolute inset-0 flex items-center justify-center z-10 text-[#6101FF] italic font-bold text-xl bg-opacity-50 top-1/2 transform -translate-y-1/2"> Read More </span>
-            </Link>
+              <span className="absolute inset-0 flex items-center justify-center z-10 text-[#6101FF] italic font-bold text-xl bg-opacity-50 top-1/2 transform -translate-y-1/2">
+                {" "}
+                Read More{" "}
+              </span>
+            </div>
           </div>
         </div>
 
