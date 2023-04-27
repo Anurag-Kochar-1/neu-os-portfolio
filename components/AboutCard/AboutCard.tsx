@@ -4,7 +4,6 @@ import anuragPNG from "../../public/images/creator/anuragPNG.png";
 import lightGrayLinesBg from "../../public/images/BGs/lightGrayLinesBg.png";
 import Link from "next/link";
 
-// h-max
 
 const AboutCard = () => {
   return (
@@ -100,4 +99,4 @@ const AboutCard = () => {
   );
 };
 
-export default AboutCard;
+export default React.memo(AboutCard);

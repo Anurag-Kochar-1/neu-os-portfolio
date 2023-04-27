@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { ProjectsData } from "@/constants/data/ProjectsData/ProjectsData";
 import { useSearchParams } from "next/navigation";
 import { IProject } from "@/types/ProjectData";
+import { AppContext } from "@/context/AppContext";
 
 const ProjectContent = () => {
   const [projectData, setProjectData] = useState<IProject | null>(null);
-  const searchParams = useSearchParams();
-  const subFolderName = searchParams.get("subFolder");
+  const { folderState, setFolderState } = useContext(AppContext);
 
   function getProjectData() {
-    const project = ProjectsData?.find((x) => x.projectName === subFolderName);
+    const project = ProjectsData?.find((x) => x.projectName === folderState?.subFolderName);
     if (project) setProjectData(project);
   }
 
   useEffect(() => {
     getProjectData();
-  }, [subFolderName]);
+  }, [folderState?.subFolderName]);
 
-  if (!subFolderName) return null;
+  if (!folderState?.subFolderName) return null;
   return (
     <div className="w-full flex flex-col justify-center items-center space-y-6">
       <p className="text-4xl text-white font-bold my-10 px-10 text-center"> The case study for All Projects is still being written. Until then, Check out the live site or source code : {")"} </p>
@@ -34,4 +34,4 @@ const ProjectContent = () => {
   );
 };
 
-export default ProjectContent;
+export default React.memo(ProjectContent);

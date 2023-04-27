@@ -4,5 +4,6 @@ export interface IFolderIcon {
   folderIcon: string;
   folderLinkHref: string;
   onClick?: () => void;
+  isOnClickDisabled?: boolean
   bgColor?: string;
 }
