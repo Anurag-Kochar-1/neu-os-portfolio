@@ -1,5 +1,5 @@
 import { FaSearch } from "react-icons/fa"
-import { BsPersonFill, BsInstagram, BsTwitter, BsLinkedin, BsYoutube } from "react-icons/bs"
+import { BsPersonFill, BsInstagram, BsTwitter, BsLinkedin, BsYoutube, BsGithub } from "react-icons/bs"
 import { MdMail } from "react-icons/md"
 import { RiMusic2Fill } from "react-icons/ri"
 import { IoMdDownload, IoMdPerson} from "react-icons/io"
@@ -53,12 +53,12 @@ export const TaskBarIconsDataArray = [
   },
   {
     id: 5,
-    iconName: "Instagram",
-    icon: <BsInstagram />,
-    bgColor: "bg-[#DB3073]",
+    iconName: "GitHub",
+    icon: <BsGithub />,
+    bgColor: "bg-[#FF7F00]",
     iconColor: "text-black",
     isVisibleOnMobile: false,
-    link: `https://www.instagram.com/anurag__kochar/`
+    link: `https://github.com/Anurag-Kochar-1`
   },
   {
     id: 6,

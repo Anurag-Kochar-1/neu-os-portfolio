@@ -1,26 +1,17 @@
-"use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
 import MenuBar from "@/components/MenuBar/MenuBar";
 import AboutCard from "@/components/AboutCard/AboutCard";
 import FoldersContainer from "@/components/FoldersContainer/FoldersContainer";
 import Folder from "@/components/Folder/Folder";
 import TaskBar from "@/components/TaskBar/TaskBar";
-import AppContextProvider from "@/context/AppContext";
 import blueLinesBG from "../public/images/BGs/blueLinesBG.svg";
 
 export default function Home() {
-  // --------
-  const router = useRouter();
 
-  function handleOpenModal() {
-    router.push("/folder");
-  }
 
   return (
-    <AppContextProvider>
       <main className="w-full h-[100%] flex justify-center items-center md:border-0 md:border-black bg-black overflow-hidden">
         <div className="w-full h-full flex flex-col justify-start items-center md:border-0 md:border-black bg-white md:-mt-0 md:-ml-0 overflow-x-hidden overflow-y-scroll scrollbar-hide ">
           <MenuBar />
@@ -45,6 +36,5 @@ export default function Home() {
         <TaskBar />
         <Folder />
       </main>
-    </AppContextProvider>
   );
 }
