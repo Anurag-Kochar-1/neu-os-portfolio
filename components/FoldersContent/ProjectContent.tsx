@@ -34,4 +34,4 @@ const ProjectContent = () => {
   );
 };
 
-export default ProjectContent;
+export default React.memo(ProjectContent);

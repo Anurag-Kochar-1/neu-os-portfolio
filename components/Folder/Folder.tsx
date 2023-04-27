@@ -7,7 +7,6 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import Draggable from "react-draggable";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import SkillsFolderContent from "../FoldersContent/SkillsFolderContent";
@@ -72,7 +71,7 @@ const Folder = () => {
 
   return (
     <AnimatePresence initial={false} mode="wait">
-      {folderState?.isFolderOpen && (
+      {folderState.isFolderOpen && (
         <BackDrop folderRef={folderRef}>
           <motion.div
             onClick={(e) => e.stopPropagation()}
@@ -93,18 +92,29 @@ const Folder = () => {
               setIsFolderMaximized={setIsFolderMaximized}
             />
 
-            {folderState?.folderName === "Skills" && folderState?.folderType === "Folder" ? (
+            {folderState?.folderName === "Skills" &&
+            folderState?.folderType === "Folder" ? (
               <SkillsFolderContent />
             ) : null}
 
-            {folderState?.folderName === "Projects" && folderState?.folderType === "Folder" ? (
+            {folderState?.folderName === "Projects" &&
+            folderState?.folderType === "Folder" ? (
               <ProjectsFolderContent />
             ) : null}
 
-            {folderState.folderName === 'Projects' && folderState.folderType === "SubFolder" ? <ProjectContent /> : null }
+            {folderState.folderName === "Projects" &&
+            folderState.folderType === "SubFolder" ? (
+              <ProjectContent />
+            ) : null}
 
-            {folderState?.folderName === "About" && folderState?.folderType === "Folder" ? <AboutContent /> : null}
-            {folderState?.folderName === "Contact" && folderState?.folderType === "Folder" ? <ContactContent /> : null}
+            {folderState?.folderName === "About" &&
+            folderState?.folderType === "Folder" ? (
+              <AboutContent />
+            ) : null}
+            {folderState?.folderName === "Contact" &&
+            folderState?.folderType === "Folder" ? (
+              <ContactContent />
+            ) : null}
 
             {/* {!availableFolders?.includes(folderName) && (
             <div className="w-full  my-10 d flex flex-col justify-center items-center space-y-3">
