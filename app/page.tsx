@@ -12,6 +12,7 @@ import AppContextProvider from "@/context/AppContext";
 import blueLinesBG from "../public/images/BGs/blueLinesBG.svg";
 
 export default function Home() {
+  // --------
   const router = useRouter();
 
   function handleOpenModal() {
