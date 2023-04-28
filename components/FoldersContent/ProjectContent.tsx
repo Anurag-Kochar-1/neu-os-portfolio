@@ -3,10 +3,14 @@ import { ProjectsData } from "@/constants/data/ProjectsData/ProjectsData";
 import { useSearchParams } from "next/navigation";
 import { IProject } from "@/types/ProjectData";
 import { AppContext } from "@/context/AppContext";
+import Carousel from "../Carousel/Carousel";
+import Image from "next/image";
 
 const ProjectContent = () => {
   const [projectData, setProjectData] = useState<IProject | null>(null);
   const { folderState, setFolderState } = useContext(AppContext);
+
+  const DEMO_IMAGES = [`/images/demo_1.png`, `/images/demo_2.png`, `/images/demo_3.png`, `/images/demo_4.png`]
 
   function getProjectData() {
     const project = ProjectsData?.find((x) => x.projectName === folderState?.subFolderName);
@@ -30,6 +34,11 @@ const ProjectContent = () => {
           Source Code
         </a>
       </div>
+
+      <Carousel images={DEMO_IMAGES} />
+       
+      
+
     </div>
   );
 };
