@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { IoChevronForwardCircle, IoChevronBackCircle } from "react-icons/io5";
 
 interface IProps {

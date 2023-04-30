@@ -16,7 +16,7 @@ const FolderHeader = ({ isFolderMaximized, setIsFolderMaximized }: IProps) => {
   const { folderState, setFolderState } = useContext(AppContext);
 
   return (
-    <div className=" sticky top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex items-center px-5 hover:cursor-move">
+    <div className="z-10 sticky top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex items-center px-5 hover:cursor-move">
       {/* <span>.</span> */}
       <h2 className="font-semibold w-full text-center text-xl text-white ">
         {folderState?.folderName && folderState.folderType === 'Folder' ? folderState.folderName : null}
