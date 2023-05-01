@@ -17,8 +17,8 @@ const ProjectCard = ( {project}: {project: IProject} ) => {
         subFolderName: project.projectName
         
       })
-    }} className='w-60 md:w-72 lg:w-80 aspect-video flex flex-col justify-center items-center bg-black border-2 border-black rounded-lg m-5 hover:cursor-pointer '>
-        <div className='w-60 md:w-72 lg:w-80 aspect-video -mt-4 -ml-4 bg-white border-4 border-black rounded-lg pointer-events-none'>
+    }} className='w-60 md:w-72 lg:w-80  flex flex-col justify-center items-center bg-black border-2 border-black rounded-lg m-5 hover:cursor-pointer '>
+        <div className='w-60 md:w-72 lg:w-80  -mt-4 -ml-4 bg-white border-4 border-black rounded-lg pointer-events-none'>
             <Image 
                 src={project?.thumbnail}
                 width={400}

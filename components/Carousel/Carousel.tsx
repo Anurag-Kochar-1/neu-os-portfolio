@@ -4,9 +4,10 @@ import { IoChevronForwardCircle, IoChevronBackCircle } from "react-icons/io5";
 
 interface IProps {
   images: string[];
+  width: string;
 }
 
-const Carousel = ({ images }: IProps) => {
+const Carousel = ({ images, width }: IProps) => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const prevImage = () => {
@@ -21,15 +22,15 @@ const Carousel = ({ images }: IProps) => {
   };
 
   return (
-    <div className="overflow-hidden relative">
+    <div className="overflow-hidden relative border-2 border-black">
       {/* IMAGES */}
-        <div
-          className="max-w-md flex transition-transform ease-out duration-500"
-          style={{ transform: `translateX(-${currentImage * 100}%)` }}
-        >
-          {images?.map((s) => (
-            <Image src={s} width={500} height={500} key={s} alt={"image"} />
-          ))}
+      <div
+        className={`${width} flex transition-transform ease-out duration-500`}
+        style={{ transform: `translateX(-${currentImage * 100}%)` }}
+      >
+        {images?.map((s) => (
+          <Image src={s} width={500} height={500} key={s} alt={"image"} className={"object-cover"}/>
+        ))}
       </div>
 
       {/* BUTTONS */}
@@ -43,17 +44,19 @@ const Carousel = ({ images }: IProps) => {
       </div>
 
       {/* DOTS */}
-      <div className="absolute bottom-4 right-0 left-0">
-        <div className="flex items-center justify-center gap-2">
-          {images?.map((elm, index) => (
-            <span
-              className={`transition-all w-3 h-3 bg-white rounded-full ${
-                currentImage === index ? "p-1" : "bg-opacity-5"
-              }`}
-            ></span>
-          ))}
+      {images?.length < 5 && (
+        <div className="absolute bottom-4 right-0 left-0">
+          <div className="flex items-center justify-center gap-2">
+            {images?.map((elm, index) => (
+              <span
+                className={`transition-all w-3 h-3 bg-white rounded-full ${
+                  currentImage === index ? "p-1" : "bg-opacity-5"
+                }`}
+              ></span>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

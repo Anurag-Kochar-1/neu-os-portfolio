@@ -55,7 +55,6 @@ const Folder = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const folderRef = useRef<HTMLDivElement | null>(null);
 
-  const availableFolders = ["Skills", "Projects", "About", "Contact"];
 
   const getFolderBgColor = () => {
     switch (folderState?.folderName || folderState.folderType) {
@@ -70,6 +69,8 @@ const Folder = () => {
         return `bg-white`;
     }
   };
+
+
 
   return (
     <AnimatePresence initial={false} mode="wait">

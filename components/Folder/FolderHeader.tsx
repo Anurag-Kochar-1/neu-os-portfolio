@@ -1,6 +1,4 @@
-import React, { useContext } from "react";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import React, { useContext, useEffect, useState } from "react";
 import { FaMinus } from "react-icons/fa";
 import { FiMaximize2, FiMinimize2 } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
@@ -15,15 +13,15 @@ interface IProps {
 const FolderHeader = ({ isFolderMaximized, setIsFolderMaximized }: IProps) => {
   const { folderState, setFolderState } = useContext(AppContext);
 
+
   return (
-    <div className="z-10 sticky top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex items-center px-5 hover:cursor-move">
-      {/* <span>.</span> */}
-      <h2 className="font-semibold w-full text-center text-xl text-white ">
+    <div className={`z-10 sticky  top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex justify-center items-center px-5 hover:cursor-move`}>
+      <h2 className="font-semibold text-center text-xl text-white ">
         {folderState?.folderName && folderState.folderType === 'Folder' ? folderState.folderName : null}
         {folderState?.folderName === 'Projects' && folderState.folderType === 'SubFolder' ? folderState.subFolderName : null}
       </h2>
       {/* Folder Buttons */}
-      <div className="flex items-center ml-auto space-x-3">
+      <div className="absolute right-0 mr-2 flex items-center space-x-3">
         <FolderHeaderButton
           buttonColor={`bg-[#FFB443]`}
           buttonName="close"
