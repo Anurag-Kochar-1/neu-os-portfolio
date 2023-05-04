@@ -18,7 +18,6 @@ import AboutContent from "../FoldersContent/AboutContent";
 import ContactContent from "../FoldersContent/ContactContent";
 import { AppContext } from "@/context/AppContext";
 import { AnimatePresence, motion } from "framer-motion";
-import { ProjectsData } from "@/constants/data/ProjectsData/ProjectsData";
 
 const gifYouUp = {
   hidden: {
@@ -56,18 +55,22 @@ const Folder = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const folderRef = useRef<HTMLDivElement | null>(null);
 
-  const availableFolders = ["Skills", "Projects", "About", "Contact"];
 
   const getFolderBgColor = () => {
-    switch (folderState?.folderName) {
+    switch (folderState?.folderName || folderState.folderType) {
       case "Skills":
         return `bg-[#644BDF]`;
       case "Projects":
+        if (folderState?.folderType === "SubFolder") {
+          return "bg-white";
+        }
         return `bg-[#E05151]`;
       default:
         return `bg-white`;
     }
   };
+
+
 
   return (
     <AnimatePresence initial={false} mode="wait">

@@ -1,5 +1,4 @@
 
-import {useContext} from 'react'
 import Image from "next/image";
 import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
 import MenuBar from "@/components/MenuBar/MenuBar";
