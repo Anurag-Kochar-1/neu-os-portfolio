@@ -159,11 +159,11 @@ export const ProjectsData: IProject[] = [
   {
     id: 3,
     projectName: "Dev Hub",
-    tagline: "A platform to watch any YouTube videos and channels",
+    tagline: "A platform for Devs to watch any youtube videos / channels",
     thumbnail: "/images/projectsData/DevHub/thumbnail.png",
     techStack: ["React JS", "JavaScript"],
     liveLink: "https://devhub-v1-site.netlify.app/",
-    sourceCodeLink: "https://github.com/Anurag-Kochar-1/DevHub",
+    sourceCodeLink: "https://github.com/Anurag-Kochar-1/DevHub/tree/DevHub-v1",
     caseStudy: {
       overview:
         "placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem",
@@ -202,11 +202,11 @@ export const ProjectsData: IProject[] = [
         "bibendum neque egestas congue quisque egestas diam in arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc sed blandit libero volutpat sed cras ornare arcu dui vivamus arcu felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci nulla pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id semper risus in hendrerit gravida rutrum quisque non tellus orci ac auctor augue mauris augue neque gravida in fermentum et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh ipsum",
     },
     images: [
-      `/images/demo_1.png`,
-      `/images/demo_2.png`,
-      `/images/demo_3.png`,
-      `/images/demo_4.png`,
-      `/images/demo_5.png`,
+      `/images/projectsData/DevHub/images/devhub_1.png`,
+      `/images/projectsData/DevHub/images/devhub_2.png`,
+      `/images/projectsData/DevHub/images/devhub_3.png`,
+      `/images/projectsData/DevHub/images/devhub_4.png`,
+      `/images/projectsData/DevHub/images/devhub_5.png`,
     ],
   },
   {

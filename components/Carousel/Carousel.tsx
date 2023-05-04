@@ -22,24 +22,24 @@ const Carousel = ({ images, width }: IProps) => {
   };
 
   return (
-    <div className="overflow-hidden relative border-2 border-black">
+    <div className=" overflow-hidden relative border-2 border-black bg-black">
       {/* IMAGES */}
       <div
-        className={`${width} flex transition-transform ease-out duration-500`}
+        className={` w-full h-full flex transition-transform ease-out duration-500`}
         style={{ transform: `translateX(-${currentImage * 100}%)` }}
       >
         {images?.map((s) => (
-          <Image src={s} width={500} height={500} key={s} alt={"image"} className={"object-cover"}/>
+          <Image src={s} width={500} height={500} key={s} alt={"image"} className={"object-cover w-full h-full"}/>
         ))}
       </div>
 
       {/* BUTTONS */}
       <div className="absolute inset-0 flex items-center justify-between p-4">
         <button onClick={prevImage}>
-          <IoChevronBackCircle size={25} color={"white"} />{" "}
+          <IoChevronBackCircle className="text-3xl md:text-4xl border-2 border-white rounded-full text-red-600" />{" "}
         </button>
         <button onClick={nextImage}>
-          <IoChevronForwardCircle size={25} color={"white"} />{" "}
+          <IoChevronForwardCircle className="text-3xl md:text-4xl border-2 border-white rounded-full text-blue-600" />{" "}
         </button>
       </div>
 
