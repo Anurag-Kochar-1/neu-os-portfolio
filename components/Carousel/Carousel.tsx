@@ -49,6 +49,7 @@ const Carousel = ({ images, width }: IProps) => {
           <div className="flex items-center justify-center gap-2">
             {images?.map((elm, index) => (
               <span
+                key={elm}
                 className={`transition-all w-3 h-3 bg-white rounded-full ${
                   currentImage === index ? "p-1" : "bg-opacity-5"
                 }`}
