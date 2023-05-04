@@ -26,7 +26,7 @@ const Carousel = ({ images, width }: IProps) => {
       {/* IMAGES */}
       <div
         className={` w-full h-full flex transition-transform ease-out duration-500`}
-        style={{ transform: `translateX(-${currentImage * 100}%)` }}
+        style={{ transform: `translateX(-${currentImage * 35}%)` }}
       >
         {images?.map((s) => (
           <Image src={s} width={500} height={500} key={s} alt={"image"} className={"object-cover w-full h-full"}/>
