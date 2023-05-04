@@ -36,15 +36,15 @@ const Carousel = ({ images, width }: IProps) => {
       {/* BUTTONS */}
       <div className="absolute inset-0 flex items-center justify-between p-4">
         <button onClick={prevImage}>
-          <IoChevronBackCircle size={20} color={"white"} />{" "}
+          <IoChevronBackCircle size={25} color={"white"} />{" "}
         </button>
         <button onClick={nextImage}>
-          <IoChevronForwardCircle size={20} color={"white"} />{" "}
+          <IoChevronForwardCircle size={25} color={"white"} />{" "}
         </button>
       </div>
 
       {/* DOTS */}
-      {images?.length < 5 && (
+      {false && (
         <div className="absolute bottom-4 right-0 left-0">
           <div className="flex items-center justify-center gap-2">
             {images?.map((elm, index) => (

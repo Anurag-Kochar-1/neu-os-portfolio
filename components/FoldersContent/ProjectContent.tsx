@@ -1,11 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import { ProjectsData } from "@/constants/data/ProjectsData/ProjectsData";
-import { useSearchParams } from "next/navigation";
 import { IProject } from "@/types/ProjectData";
 import { AppContext } from "@/context/AppContext";
 import Carousel from "../Carousel/Carousel";
 import Tag from "../ProjectCard/Tag";
-import Image from "next/image";
 
 const ParagraphContainer = ({ children }: { children: React.ReactNode }) => {
   return (
