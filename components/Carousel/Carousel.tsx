@@ -29,9 +29,20 @@ const Carousel = ({ images, width }: IProps) => {
         style={{ transform: `translateX(-${currentImage * 35}%)` }}
       >
         {images?.map((s) => (
-          <Image src={s} width={500} height={500} key={s} alt={"image"} className={"object-cover w-full h-full"}/>
+          <Image
+            src={s}
+            width={500}
+            height={500}
+            key={s}
+            alt={"image"}
+            className={"object-cover w-full h-full"}
+            draggable="false"
+            placeholder="blur"
+            blurDataURL={`/images/black.png`}
+          />
         ))}
       </div>
+
 
       {/* BUTTONS */}
       <div className="absolute inset-0 flex items-center justify-between p-4">
