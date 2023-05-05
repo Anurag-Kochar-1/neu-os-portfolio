@@ -102,7 +102,7 @@ const FolderIcon = ({
                 className="w-12 md:w-20 aspect-square object-contain select-none"
                 draggable="false"
                 placeholder='blur'
-                blurDataURL={`/images/black.png`}
+                blurDataURL={`/images/loader/loader.svg`}
               />
             </div>
           </div>
