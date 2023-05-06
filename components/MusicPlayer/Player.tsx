@@ -82,7 +82,7 @@ const Player = ({
     <div className="w-full sm:w-96 h-36 flex flex-col items-center justify-center bg-black border-2 border-black select-none">
       <div className="w-full h-full -mt-3 -ml-3 flex flex-col items-center justify-start bg-[#D9D9D9] border-2 border-black">
         {/* ----- HEADER  -----*/}
-        <div ref={headerRef} className={`w-full h-10 bg-black flex justify-between items-center px-2 hover:cursor-move`}>
+        <div ref={headerRef} className={`w-full h-10 bg-black flex justify-between items-center px-2 hover:cursor-pointer`}>
           {/* DOTS */}
           <div className='flex justify-center items-center space-x-2'>
             <span className='w-3 h-3 rounded-full bg-[#269B4E] hover:cursor-pointer'></span>

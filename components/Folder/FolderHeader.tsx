@@ -15,7 +15,7 @@ const FolderHeader = ({ isFolderMaximized, setIsFolderMaximized }: IProps) => {
 
 
   return (
-    <div className={`z-10 sticky  top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex justify-center items-center px-5 hover:cursor-move`}>
+    <div className={`z-10 sticky  top-0 right-0 left-0 w-full h-12 bg-black/[.30] flex justify-center items-center px-5 hover:cursor-pointer`}>
       <h2 className="font-semibold text-center text-xl text-white ">
         {folderState?.folderName && folderState.folderType === 'Folder' ? folderState.folderName : null}
         {folderState?.folderName === 'Projects' && folderState.folderType === 'SubFolder' ? folderState.subFolderName : null}

@@ -38,7 +38,7 @@ const Carousel = ({ images, width }: IProps) => {
             className={"object-cover w-full h-full"}
             draggable="false"
             placeholder="blur"
-            blurDataURL={`/images/black.png`}
+            blurDataURL={`/images/loader/loader.svg`}
           />
         ))}
       </div>
