@@ -1,7 +1,7 @@
 "use client"
 import React, { useContext } from "react";
 import Image from "next/image";
-import anuragPNG from "../../public/images/creator/anuragPNG.png";
+import anuragPNG from "../../public/images/creator/cat.png";
 import lightGrayLinesBg from "../../public/images/BGs/lightGrayLinesBg.png";
 import { AppContext } from "@/context/AppContext";
 
@@ -30,7 +30,7 @@ const AboutCard = () => {
           {/* ---------- Photo ----------*/}
           <div className="w-[90%] lg:w-[70%] bg-green-500 flex justify-center items-center p-3 my-3">
             <div className="bg-yellow-300 flex justify-center items-center p-3">
-              <div className="bg-red-600 flex justify-center items-center pt-3">
+              <div className="bg-red-600 flex justify-center items-center">
                 <Image
                   src={anuragPNG}
                   quality={100}
@@ -38,6 +38,7 @@ const AboutCard = () => {
                   width={700}
                   height={700}
                   draggable="false"
+                  className="object-cover h-full"
                 />
               </div>
             </div>
@@ -83,7 +84,8 @@ const AboutCard = () => {
                 Read More{" "}
               </span>
             </div>
-          </div>
+
+            </div>
         </div>
 
         {/* ----------- Bottom bar -----------*/}
