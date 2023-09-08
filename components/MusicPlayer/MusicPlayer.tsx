@@ -33,7 +33,7 @@ const MusicPlayer = () => {
   useEffect(() => {
     if (isSongPlaying) {
       if (audioRef.current) {
-        audioRef.current.volume = 0.03;
+        audioRef.current.volume = 0.09;
         audioRef?.current.play();
       }
     } else {

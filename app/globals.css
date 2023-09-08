@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
-/* * {
-    cursor: url(../public/images/cursors/cursorOne.png), auto
-} */
+body {
+    cursor: url(../public/images/cursors/white.png), auto
+}
+
+.hover\:cursor-pointer:hover {
+    cursor: url(../public/images/cursors/hand.png), auto !important;
+  }

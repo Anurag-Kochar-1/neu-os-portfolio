@@ -1,5 +1,4 @@
 
-import {useContext} from 'react'
 import Image from "next/image";
 import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
 import MenuBar from "@/components/MenuBar/MenuBar";
@@ -7,7 +6,6 @@ import AboutCard from "@/components/AboutCard/AboutCard";
 import FoldersContainer from "@/components/FoldersContainer/FoldersContainer";
 import TaskBar from "@/components/TaskBar/TaskBar";
 import blueLinesBG from "../public/images/BGs/blueLinesBG.svg";
-import { AppContext } from "@/context/AppContext";
 import dynamic from 'next/dynamic'
 const Folder = dynamic(() => import('../components/Folder/Folder'))
 

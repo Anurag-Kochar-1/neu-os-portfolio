@@ -49,8 +49,8 @@ interface IFolderState {
 
 const AppContextProvider = ({ children }: { children: ReactNode }) => {
   const searchParams = useSearchParams();
-  const folderQueryParam = searchParams.get("folder");
-  const subFolderQueryParam = searchParams.get("subFolder");
+  const folderQueryParam = searchParams?.get("folder");
+  const subFolderQueryParam = searchParams?.get("subFolder");
   const availableFolders = ['Skills', 'Projects', 'About', 'Contact']
 
 

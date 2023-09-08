@@ -9,16 +9,17 @@ import React, {
 } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import SkillsFolderContent from "../FoldersContent/SkillsFolderContent";
-import ProjectsFolderContent from "../FoldersContent/ProjectsFolderContent";
-import ProjectContent from "../FoldersContent/ProjectContent";
-import FolderHeader from "./FolderHeader";
 import BackDrop from "./BackDrop";
-import AboutContent from "../FoldersContent/AboutContent";
-import ContactContent from "../FoldersContent/ContactContent";
 import { AppContext } from "@/context/AppContext";
 import { AnimatePresence, motion } from "framer-motion";
-import { ProjectsData } from "@/constants/data/ProjectsData/ProjectsData";
+import FolderHeader from "./FolderHeader";
+
+import dynamic from 'next/dynamic'
+const AboutContent = dynamic(() => import("../FoldersContent/AboutContent"))
+const SkillsFolderContent = dynamic(() => import("../FoldersContent/SkillsFolderContent"))
+const ContactContent = dynamic(() => import("../FoldersContent/ContactContent"))
+const ProjectContent = dynamic(() => import("../FoldersContent/ProjectContent"))
+const ProjectsFolderContent = dynamic(() => import("../FoldersContent/ProjectsFolderContent"))
 
 const gifYouUp = {
   hidden: {
@@ -45,29 +46,30 @@ const gifYouUp = {
 
 const Folder = () => {
   console.log(`===== FOLDER COMPONENT IS RENDERING =====`);
-  const router = useRouter();
-  const searchParams = useSearchParams();
 
   // ----- STATES ----
   const [isFolderMaximized, setIsFolderMaximized] = useState<boolean>(false);
   const { folderState, setFolderState } = useContext(AppContext);
 
   // ---- REFS ----
-  const containerRef = useRef<HTMLDivElement | null>(null);
   const folderRef = useRef<HTMLDivElement | null>(null);
 
-  const availableFolders = ["Skills", "Projects", "About", "Contact"];
 
   const getFolderBgColor = () => {
-    switch (folderState?.folderName) {
+    switch (folderState?.folderName || folderState.folderType) {
       case "Skills":
         return `bg-[#644BDF]`;
       case "Projects":
+        if (folderState?.folderType === "SubFolder") {
+          return "bg-white";
+        }
         return `bg-[#E05151]`;
       default:
         return `bg-white`;
     }
   };
+
+
 
   return (
     <AnimatePresence initial={false} mode="wait">
@@ -116,13 +118,6 @@ const Folder = () => {
               <ContactContent />
             ) : null}
 
-            {/* {!availableFolders?.includes(folderName) && (
-            <div className="w-full  my-10 d flex flex-col justify-center items-center space-y-3">
-              <p className="text-center text-5xl font-semibol">
-                {folderName} Folder is under construction
-              </p>
-            </div>
-          )} */}
           </motion.div>
         </BackDrop>
       )}
